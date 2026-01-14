@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TextileSystem.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TextileSystem.Controls"
+    xmlns:models="clr-namespace:TextileSystem.Models"
+    xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+    xmlns:vm="clr-namespace:TextileSystem.ViewModels"
+    Title="MainPage"
+    x:DataType="vm:MainPageViewModel">
+
+    <StackLayout>
+        <tabView:SfTabView Padding="5,0,0,0" ItemsSource="{x:Binding Sections}">
+
+            <tabView:SfTabView.HeaderItemTemplate>
+                <DataTemplate x:DataType="models:MenuSection">
+                    <Label
+                        Padding="10"
+                        FontAttributes="Bold"
+                        Text="{x:Binding Title}" />
+                </DataTemplate>
+            </tabView:SfTabView.HeaderItemTemplate>
+
+            <tabView:SfTabView.ContentItemTemplate>
+                <DataTemplate x:DataType="models:MenuSection">
+
+                    <CollectionView Margin="0,10,0,0" ItemsSource="{x:Binding Groups}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuGroup">
+
+                                <!--  GROUP CONTAINER  -->
+                                <Border Padding="10">
+
+                                    <VerticalStackLayout Spacing="10">
+
+                                        <!--  GROUP TITLE  -->
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{x:Binding Title}" />
+
+                                        <!--  TILES INSIDE THE GROUP  -->
+                                        <HorizontalStackLayout BindableLayout.ItemsSource="{Binding Tiles}" HorizontalOptions="Center">
+
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate x:DataType="models:MenuTile">
+                                                    <controls:MenuTile
+                                                        Margin="2"
+                                                        Tile="{Binding}"
+                                                        TileColor="#1B6F44">
+                                                        <controls:MenuTile.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}" CommandParameter="{Binding}" />
+                                                        </controls:MenuTile.GestureRecognizers>
+                                                    </controls:MenuTile>
+
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+
+                                        </HorizontalStackLayout>
+
+                                    </VerticalStackLayout>
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8" />
+                                    </Border.StrokeShape>
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                </DataTemplate>
+            </tabView:SfTabView.ContentItemTemplate>
+
+        </tabView:SfTabView>
+    </StackLayout>
+
+</ContentPage>

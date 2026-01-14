@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="TextileSystem.Controls.MenuTile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Root">
+
+    <Border BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
+
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+            <Image
+                HeightRequest="48"
+                Source="{Binding Tile.Icon, Source={x:Reference Root}}"
+                WidthRequest="48" />
+
+            <Label
+                Padding="5"
+                FontSize="12"
+                LineBreakMode="CharacterWrap"
+                Text="{Binding Tile.Title, Source={x:Reference Root}}" />
+
+        </VerticalStackLayout>
+    </Border>
+
+</ContentView>
