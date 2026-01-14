@@ -35,14 +35,36 @@ public class MenuTile {
     /// </summary>
     public string Icon { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Reserved for later (action, route, command parameter, etc.)
-    /// </summary>
-    public string? Key { get; set; }
+    public MenuAction Action { get; set; }
 
-    public MenuTile WithKey(int section, int group) {
-        Key = $"{section}/{group}/{Title}";
-        return this;
+    public enum MenuAction {
+
+        // Captura & Consulta
+        VentaConsultaGeneral,
+        VentaConsultaHistorico,
+        StockConsultaGeneral,
+        StockConsultaAlmacenes,
+        TraspasoCaptura,
+        TraspasoConsulta,
+        VentaCaptura,
+        VentaConsulta,
+        CompraCaptura,
+        CompraConsulta,
+
+        // Catálogos
+        Clientes,
+        Proveedores,
+        Usuarios,
+        Productos,
+        Colores,
+
+        // Portales
+        FirmarMovimiento,
+        FirmarMovimientoConsulta,
+
+        // Análisis
+        InformeNegativos,
+        InformeAjustes,
+        InformeMovimientos
     }
-
 }

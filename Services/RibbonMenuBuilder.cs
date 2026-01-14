@@ -11,69 +11,36 @@ public static class MenuFactory {
                 new MenuGroup {
                     Title = "Venta consulta",
                     Tiles = [
-                        new MenuTile { Title = "General"}.WithKey(1,1),
-                        new MenuTile { Title = "Historico"}.WithKey(1,1),
+                        new MenuTile { Title = "General", Action = MenuTile.MenuAction.VentaConsultaGeneral },
+                        new MenuTile { Title = "Historico", Action = MenuTile.MenuAction.VentaConsultaHistorico },
                     ]
                 },
                 new MenuGroup {
                     Title = "Consulta de stocks",
                     Tiles = [
-                        new MenuTile { Title = "General" }.WithKey(1, 2),
-                        new MenuTile { Title = "Almacenes" }.WithKey(1, 2),
-                        new MenuTile { Title = "Tienda" }.WithKey(1, 2),
-                    ]
-                },
-                new MenuGroup {
-                    Title = "Envio de captonar",
-                    Tiles = [
-                        new MenuTile { Title = "Dibujos" }.WithKey(1, 3),
-                        new MenuTile { Title = "Envio" }.WithKey(1, 3),
-                        new MenuTile { Title = "Consulta" }.WithKey(1, 3),
-                        new MenuTile { Title = "Inventario en proceso" }.WithKey(1, 3),
-                    ]
-                },
-                new MenuGroup {
-                    Title = "Recepcion capitonado",
-                    Tiles = [
-                        new MenuTile { Title = "Recepcion" }.WithKey(1, 4),
-                        new MenuTile { Title = "Consulta" }.WithKey(1, 4),
+                        new MenuTile { Title = "General", Action = MenuTile.MenuAction.StockConsultaGeneral},
+                        new MenuTile { Title = "Almacenes", Action = MenuTile.MenuAction.StockConsultaAlmacenes },
                     ]
                 },
                 new MenuGroup {
                     Title = "Traspasos generales",
                     Tiles = [
-                        new MenuTile { Title = "Captura" }.WithKey(1, 5),
-                        new MenuTile { Title = "Chnc - centro" }.WithKey(1, 5),
-                        new MenuTile { Title = "Chnc - portales" }.WithKey(1, 5),
-                        new MenuTile { Title = "Consulta" }.WithKey(1, 5),
+                        new MenuTile { Title = "Captura", Action = MenuTile.MenuAction.TraspasoCaptura },
+                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.TraspasoConsulta },
                     ]
                 },
                 new MenuGroup {
-                    Title = "Traspasos almacen a tienda",
+                    Title = "Ventas",
                     Tiles = [
-                        new MenuTile { Title = "Captura" }.WithKey(1, 6),
-                        new MenuTile { Title = "Consulta" }.WithKey(1, 6),
-                    ]
-                },
-                new MenuGroup {
-                    Title = "Ventas captura",
-                    Tiles = [
-                        new MenuTile { Title = "A. portales" }.WithKey(1, 7),
-                        new MenuTile { Title = "A. centro" }.WithKey(1, 7),
-                        new MenuTile { Title = "Chiconcuac" }.WithKey(1, 7),
-                        new MenuTile { Title = "Tienda" }.WithKey(1, 7),
+                        new MenuTile { Title = "Captura", Action = MenuTile.MenuAction.VentaCaptura },
+                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.VentaConsulta }
                     ]
                 },
                 new MenuGroup {
                     Title = "Compras",
                     Tiles = [
-                        new MenuTile { Title = "Compras" }.WithKey(1, 8),
-                        new MenuTile { Title = "Consulta" }.WithKey(1, 8),
-                    ]
-                },
-                new MenuGroup {
-                    Tiles = [
-                        new MenuTile { Title = "Vriaciones" }.WithKey(1, 9),
+                        new MenuTile { Title = "Compras", Action = MenuTile.MenuAction.CompraCaptura },
+                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.CompraConsulta }
                     ]
                 },
             ]
@@ -84,11 +51,11 @@ public static class MenuFactory {
                 new MenuGroup {
                     Title = "Principales",
                     Tiles =[
-                        new MenuTile { Title = "Clientes" }.WithKey(2,1),
-                        new MenuTile { Title = "Proveedores" }.WithKey(2,2),
-                        new MenuTile { Title = "Usuarios" }.WithKey(2,3),
-                        new MenuTile { Title = "Productos" }.WithKey(2,4),
-                        new MenuTile { Title = "Colores" }.WithKey(2,5),
+                        new MenuTile { Title = "Clientes", Action = MenuTile.MenuAction.Clientes },
+                        new MenuTile { Title = "Proveedores", Action = MenuTile.MenuAction.Proveedores },
+                        new MenuTile { Title = "Usuarios", Action = MenuTile.MenuAction.Usuarios },
+                        new MenuTile { Title = "Productos", Action = MenuTile.MenuAction.Productos },
+                        new MenuTile { Title = "Colores", Action = MenuTile.MenuAction.Colores },
                     ]
                 }
             ]
@@ -99,8 +66,8 @@ public static class MenuFactory {
               new MenuGroup {
                   Title = "Firmar movimientos",
                   Tiles =[
-                      new MenuTile { Title = "Firmar" }.WithKey(3,1),
-                      new MenuTile { Title = "Firmar consultar" }.WithKey(3,2),
+                      new MenuTile { Title = "Firmar", Action = MenuTile.MenuAction.FirmarMovimiento },
+                      new MenuTile { Title = "Firmar consultar", Action = MenuTile.MenuAction.FirmarMovimientoConsulta },
                   ]
               }
             ]
@@ -111,9 +78,9 @@ public static class MenuFactory {
                 new MenuGroup {
                     Title = "Informes",
                     Tiles = [
-                        new MenuTile { Title = "Negaivos" }.WithKey(4,1),
-                        new MenuTile { Title = "Ajustes" }.WithKey(4,2),
-                        new MenuTile { Title = "Movimientos" }.WithKey(4,3),
+                        new MenuTile { Title = "Negaivos", Action = MenuTile.MenuAction.InformeNegativos },
+                        new MenuTile { Title = "Ajustes", Action = MenuTile.MenuAction.InformeAjustes },
+                        new MenuTile { Title = "Movimientos", Action = MenuTile.MenuAction.InformeMovimientos },
                     ]
                 }
             ]

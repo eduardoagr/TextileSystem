@@ -4,10 +4,15 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:TextileSystem.Views"
-    Title="TextileSystem">
+    Title="TextileSystem"
+    FlyoutBehavior="Disabled">
 
-    <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Shell.NavBarIsVisible="False" />
+    <ShellContent ContentTemplate="{DataTemplate views:AuthPage}" Shell.NavBarIsVisible="False" />
 
+    <ShellContent
+        ContentTemplate="{DataTemplate views:MainPage}"
+        Route="MainPage"
+        Shell.NavBarIsVisible="False" />
 
 </Shell>
 
