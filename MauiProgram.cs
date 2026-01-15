@@ -1,6 +1,4 @@
-﻿
-
-namespace TextileSystem {
+﻿namespace TextileSystem {
     public static class MauiProgram {
         public static MauiApp CreateMauiApp() {
             SyncfusionLicenseProvider.RegisterLicense(Keys.SyncfusionLicenseKey);
@@ -22,6 +20,12 @@ namespace TextileSystem {
 
             builder.Services.AddSingleton<AuthPage>();
             builder.Services.AddSingleton<AuthPageViewModel>();
+
+            // Messenger (MVVM Toolkit)
+
+            builder.Services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
+
+            builder.Services.AddSingleton<IShellService, ShellService>();
 
             #endregion
 

@@ -1,4 +1,5 @@
 ﻿namespace TextileSystem.ViewModels {
+
     public partial class MainPageViewModel : ObservableObject {
 
         public ObservableCollection<MenuSection> Sections { get; set; }
