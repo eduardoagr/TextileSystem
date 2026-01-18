@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="TextileSystem.Controls.BusyButton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="root">
+
+    <Grid HeightRequest="60">
+        <Button
+            Command="{x:Binding Command,
+                                Source={x:Reference root}}"
+            CornerRadius="8"
+            IsEnabled="{x:Binding IsNotBusy,
+                                  Source={x:Reference root}}" />
+
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            Spacing="10"
+            VerticalOptions="Center">
+
+            <ActivityIndicator
+                HeightRequest="22"
+                IsRunning="{x:Binding IsBusy,
+                                      Source={x:Reference root}}"
+                IsVisible="{x:Binding IsBusy,
+                                      Source={x:Reference root}}"
+                WidthRequest="22"
+                Color="{x:Binding Color,
+                                  Source={x:Reference root}}" />
+
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Text, Source={x:Reference root}}"
+                TextColor="White" />
+        </StackLayout>
+    </Grid>
+</ContentView>

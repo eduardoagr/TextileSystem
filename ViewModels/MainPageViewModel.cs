@@ -1,4 +1,6 @@
-﻿namespace TextileSystem.ViewModels {
+﻿
+
+namespace TextileSystem.ViewModels {
 
     public partial class MainPageViewModel : ObservableObject {
 
@@ -56,18 +58,23 @@
                 // -----------------------------
 
                 case MenuTile.MenuAction.Clientes:
+                    WindowFactory.CreateCentered<CatalogsClients>("Clientes", 600, 600);
                     break;
 
                 case MenuTile.MenuAction.Proveedores:
+                    WindowFactory.CreateCentered<CatalogsProvider>("Proveedores", 600, 600);
                     break;
 
                 case MenuTile.MenuAction.Usuarios:
+                    WindowFactory.CreateCentered<CatalogsUsers>("Ususrios", 600, 430);
                     break;
 
                 case MenuTile.MenuAction.Productos:
+                    WindowFactory.CreateCentered<CatalogsProductcs>("Productos", 600, 300);
                     break;
 
                 case MenuTile.MenuAction.Colores:
+                    WindowFactory.CreateCentered<CatalogsColors>("Colores", 600, 200);
                     break;
 
                 // -----------------------------

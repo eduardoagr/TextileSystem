@@ -21,11 +21,38 @@
             builder.Services.AddSingleton<AuthPage>();
             builder.Services.AddSingleton<AuthPageViewModel>();
 
+            #region Menu items
+
+            builder.Services.AddTransient<CatalogsProductcsViewModel>();
+            builder.Services.AddTransient<CatalogsProductcs>();
+
+            builder.Services.AddTransient<CatalogsColors>();
+            builder.Services.AddTransient<CatalogsColorsViewModel>();
+
+            builder.Services.AddTransient<CatalogsClients>();
+            builder.Services.AddTransient<CatalogsClientsViewModel>();
+
+            builder.Services.AddTransient<CatalogsProvider>();
+            builder.Services.AddTransient<CatalogsProviderViewModel>();
+
+            builder.Services.AddTransient<CatalogsUsers>();
+            builder.Services.AddTransient<CatalogsUsersViewModel>();
+
+            #endregion
+
             // Messenger (MVVM Toolkit)
 
             builder.Services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
 
             builder.Services.AddSingleton<IShellService, ShellService>();
+
+            // Window service
+
+            builder.Services.AddSingleton<IWindowService, WindowService>();
+
+            // Dialog service
+
+            builder.Services.AddSingleton<ICustomDialogService, CustomDialogService>();
 
             #endregion
 

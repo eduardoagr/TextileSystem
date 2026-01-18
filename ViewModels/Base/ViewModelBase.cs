@@ -32,11 +32,6 @@ public abstract partial class ViewModelBase<T>(
     protected async Task<bool> DisplayConfirmAsync(string title, string message, string accept, string cancel) =>
         await shellService.DisplayConfirmAsync(title, message, accept, cancel);
 
-    protected async Task DisplayToastAsync(string message, ToastDuration toastDuration = ToastDuration.Short, double fontSize = 14) {
-        var cancellationTokenSource = new CancellationTokenSource();
-        var toast = Toast.Make(message, toastDuration, fontSize);
-        await toast.Show(cancellationTokenSource.Token);
-    }
 
     // Navigation helpers...
     protected async Task NavigateAsync(string route) => await shellService.NavigateToAsync(route);

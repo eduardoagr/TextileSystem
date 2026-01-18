@@ -2,15 +2,20 @@
 
 public partial class App : Application {
 
-   private readonly AppShell appShell;
+    public static IServiceProvider? Services { get; private set; }
 
-    public App(AppShell shell) {
+    private readonly AppShell appShell;
+
+    public App(IServiceProvider service, AppShell shell) {
         InitializeComponent();
 
         appShell = shell;
+        Services = service;
     }
 
     protected override Window CreateWindow(IActivationState? activationState) {
-        return new Window(appShell);
+        var window = new Window(appShell); // tu Shell DI
+        return window;
+
     }
 }

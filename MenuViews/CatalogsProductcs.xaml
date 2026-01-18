@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TextileSystem.MenuViews.CatalogsProductcs"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:numeric="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:vm="clr-namespace:TextileSystem.MenuViewModels"
+    xmlns:conrols="clr-namespace:TextileSystem.Controls"
+    x:DataType="vm:CatalogsProductcsViewModel">
+
+    <Grid Padding="10" RowDefinitions="80,80,*">
+        <input:SfTextInputLayout Hint="Nombre">
+            <Entry />
+        </input:SfTextInputLayout>
+
+        <input:SfTextInputLayout Grid.Row="1" Hint="Precio">
+            <numeric:SfNumericEntry
+                CustomFormat="0.00"
+                ShowClearButton="False"
+                SmallChange="0.5"
+                TextColor="{x:AppThemeBinding Dark={x:StaticResource White},
+                                              Light={x:StaticResource Black}}"
+                UpDownButtonColor="{x:AppThemeBinding Dark={x:StaticResource White},
+                                                      Light={x:StaticResource Black}}"
+                UpDownPlacementMode="InlineVertical" />
+        </input:SfTextInputLayout>
+
+        <HorizontalStackLayout
+            Grid.Row="2"
+            HorizontalOptions="End"
+            Spacing="10"
+            VerticalOptions="End">
+
+            <conrols:CustomButton
+                Command="{x:Binding SaveToDatabaseCommand}"
+                CornerRadius="8"
+                Text="Guardar"/>
+        </HorizontalStackLayout>
+
+    </Grid>
+
+
+</ContentPage>
