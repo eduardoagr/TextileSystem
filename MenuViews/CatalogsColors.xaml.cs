@@ -1,11 +1,11 @@
 namespace TextileSystem.MenuViews;
 
-public partial class CatalogsColors : ContentPage {
+public partial class CatalogsColors : ContentPage
+{
 
-    public CatalogsColors(CatalogsColorsViewModel catalogsColors, ICustomDialogService dialogService) {
+    public CatalogsColors(CatalogsColorsViewModel catalogsColors)
+    {
         InitializeComponent();
-
-        catalogsColors.SetDialogService(dialogService);
 
         BindingContext = catalogsColors;
     }

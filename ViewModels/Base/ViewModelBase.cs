@@ -10,11 +10,15 @@ public abstract partial class ViewModelBase<T>(
 
     protected void TrackModel(T model, params IRelayCommand[] commands) {
         if(_trackedModel != null && _propertyChangedHandler != null)
+        {
             _trackedModel.PropertyChanged -= _propertyChangedHandler;
+        }
 
         _propertyChangedHandler = (_, _) => {
             foreach(var cmd in commands)
+            {
                 cmd.NotifyCanExecuteChanged();
+            }
         };
 
         model.PropertyChanged += _propertyChangedHandler;
@@ -22,7 +26,9 @@ public abstract partial class ViewModelBase<T>(
         _trackedModel = model;
 
         foreach(var cmd in commands)
+        {
             cmd.NotifyCanExecuteChanged();
+        }
     }
 
     // Shell Helpers...

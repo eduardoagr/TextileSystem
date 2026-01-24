@@ -17,7 +17,7 @@
             <Entry />
         </input:SfTextInputLayout>
 
-        <input:SfTextInputLayout Grid.Row="1" Hint="Password">
+        <input:SfTextInputLayout Grid.Row="1" Hint="Contraseña">
             <Entry />
         </input:SfTextInputLayout>
 

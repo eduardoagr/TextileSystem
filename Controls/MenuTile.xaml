@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="Root">
 
-    <Border BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
+    <Border Margin="2" BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
 
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
@@ -18,7 +18,8 @@
                 Padding="5"
                 FontSize="12"
                 LineBreakMode="CharacterWrap"
-                Text="{Binding Tile.Title, Source={x:Reference Root}}" />
+                Text="{Binding Tile.Title, Source={x:Reference Root}}"
+                TextColor="White" />
 
         </VerticalStackLayout>
     </Border>

@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:TextileSystem.Controls"
+    xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:models="clr-namespace:TextileSystem.Models"
+    xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
     xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
     xmlns:vm="clr-namespace:TextileSystem.ViewModels"
     x:DataType="vm:MainPageViewModel">
@@ -52,10 +54,7 @@
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate x:DataType="models:MenuTile">
 
-                                                    <controls:MenuTile
-                                                        Margin="2"
-                                                        Tile="{Binding}"
-                                                        TileColor="#1B6F44">
+                                                    <controls:MenuTile Tile="{x:Binding}" TileColor="{x:Binding tileColor, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}">
 
                                                         <controls:MenuTile.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}" CommandParameter="{Binding}" />
@@ -85,6 +84,22 @@
             </tabView:SfTabView.ContentItemTemplate>
 
         </tabView:SfTabView>
+
+        <sfPopup:SfPopup
+            AnimationMode="Zoom"
+            AutoSizeMode="Both"
+            IsOpen="{x:Binding IsConfigurationsOpen}"
+            ShowHeader="False">
+            <sfPopup:SfPopup.PopupStyle>
+                <sfPopup:PopupStyle PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </sfPopup:SfPopup.PopupStyle>
+            <sfPopup:SfPopup.ContentTemplate>
+                <DataTemplate>
+                    <inputs:SfColorPicker ColorChangedCommand="{x:Binding ColorChangedCommand}" IsInline="True" />
+                </DataTemplate>
+            </sfPopup:SfPopup.ContentTemplate>
+        </sfPopup:SfPopup>
+
 
     </StackLayout>
 

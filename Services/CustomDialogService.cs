@@ -1,63 +1,75 @@
-﻿
-namespace TextileSystem.Services;
+﻿namespace TextileSystem.Services;
 
-public class CustomDialogService : ICustomDialogService {
+public class CustomDialogService : ICustomDialogService
+{
+    private readonly SfPopup _popup;
+    private readonly Image _image;
+    private readonly Label _messageLabel;
 
-    private readonly SfPopup popup;
+    public CustomDialogService()
+    {
+        _image = new Image
+        {
+            IsAnimationPlaying = true,
+            HeightRequest = DeviceInfo.Idiom == DeviceIdiom.Desktop ? 100 : -1,
+            WidthRequest = DeviceInfo.Idiom == DeviceIdiom.Desktop ? 100 : -1
+        };
 
-    public CustomDialogService() {
+        _messageLabel = new Label
+        {
+            FontAttributes = FontAttributes.Bold,
+            FontSize = 18,
+            HorizontalTextAlignment = TextAlignment.Center
+        };
 
-        popup = new SfPopup {
+        _popup = new SfPopup
+        {
             AnimationMode = PopupAnimationMode.Zoom,
             AutoSizeMode = PopupAutoSizeMode.Both,
             StaysOpen = true,
-            AutoCloseDuration = 800,
             ShowOverlayAlways = true,
             OverlayMode = PopupOverlayMode.Blur,
             ShowHeader = false,
-            PopupStyle = new PopupStyle {
-
-                CornerRadius = 16
-                // Background will be set dynamically in ShowAsync
-            }
+            PopupStyle = new PopupStyle { CornerRadius = 16 },
+            ContentTemplate = CreateContentTemplate()
         };
     }
 
+    public void Show(string imageSource, string message = "Guardado satisfactoriamente")
+    {
+        UpdateTheme();
 
-    public void HideAsync() {
+        _image.Source = imageSource;
+        _messageLabel.Text = message;
 
-        popup.Dismiss();
-
+        _popup.Show();
     }
 
-    public void ShowAsync(string imageSource, string message = "Guardado satisfactoriamente") {
+    public void Hide()
+    {
+        _popup.Dismiss();
+    }
 
+    private void UpdateTheme()
+    {
+        _popup.PopupStyle.PopupBackground =
+            Application.Current?.RequestedTheme == AppTheme.Dark
+                ? Colors.Black
+                : Colors.White;
+    }
 
-        // Update background based on current theme
-        popup.PopupStyle.PopupBackground = Application.Current!.RequestedTheme == AppTheme.Dark
-            ? Colors.Black
-            : Colors.White;
-
-        // Update content with custom message and image
-
-        Image img = new() { Source = imageSource, IsAnimationPlaying = true };
-        if(DeviceInfo.Idiom == DeviceIdiom.Desktop) {
-            img.HeightRequest = 100;
-            img.WidthRequest = 100;
-        }
-
-        popup.ContentTemplate = new DataTemplate(() => {
-            return new VerticalStackLayout {
-
+    private DataTemplate CreateContentTemplate()
+    {
+        return new DataTemplate(() =>
+            new VerticalStackLayout
+            {
                 Padding = 10,
-                Children = { img, new Label { Text = message, FontAttributes = FontAttributes.Bold, FontSize = 18,
-                    HorizontalTextAlignment = TextAlignment.Center }
-
-                    }
-            };
-        });
-
-        popup.Show();
-
+                Spacing = 12,
+                Children =
+                {
+                    _image,
+                    _messageLabel
+                }
+            });
     }
 }

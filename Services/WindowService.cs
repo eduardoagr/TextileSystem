@@ -39,11 +39,15 @@ public class WindowService : IWindowService {
 #elif MACCATALYST
         var windows = Application.Current?.Windows;
         if(windows == null || windows.Count == 0)
+        {
             return;
+        }
 
         var uiWindow = windows[0].Handler.PlatformView as UIWindow;
         if(uiWindow?.WindowScene?.SizeRestrictions == null)
+        {
             return;
+        }
 
         var targetSize = new CGSize(widthDip, heightDip);
 

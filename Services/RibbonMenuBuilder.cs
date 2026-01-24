@@ -1,11 +1,14 @@
 ﻿namespace TextileSystem.Services;
 
-public static class MenuFactory {
-    public static IList<MenuSection> CreateMenu() {
+public static class MenuFactory
+{
+    public static IList<MenuSection> CreateMenu()
+    {
 
         var menu = new List<MenuSection>();
 
-        var firstTab = new MenuSection {
+        var firstTab = new MenuSection
+        {
             Title = "Captura & Consulta",
             Groups = [
                 new MenuGroup {
@@ -45,7 +48,8 @@ public static class MenuFactory {
                 },
             ]
         };
-        var secondTab = new MenuSection {
+        var secondTab = new MenuSection
+        {
             Title = "Catalogos",
             Groups = [
                 new MenuGroup {
@@ -60,7 +64,8 @@ public static class MenuFactory {
                 }
             ]
         };
-        var thirdTab = new MenuSection {
+        var thirdTab = new MenuSection
+        {
             Title = "Movimientos portales",
             Groups = [
               new MenuGroup {
@@ -72,7 +77,8 @@ public static class MenuFactory {
               }
             ]
         };
-        var fourthTab = new MenuSection {
+        var fourthTab = new MenuSection
+        {
             Title = "Analisis de datos",
             Groups = [
                 new MenuGroup {
@@ -85,11 +91,25 @@ public static class MenuFactory {
                 }
             ]
         };
+        var fifthTab = new MenuSection
+        {
+            Title = "Configuración",
+            Groups = [
+                new MenuGroup {
+                    Title = "Ajustes del sistema",
+                    Tiles = [
+                        new MenuTile { Title = "Cotores de los tiles", Action = MenuTile.MenuAction.ColoresDeTiles},
+                        new MenuTile { Title = "Idioma", Action = MenuTile.MenuAction.Idioma},
+                    ]
+                }
+            ]
+        };
 
         menu.Add(firstTab);
         menu.Add(secondTab);
         menu.Add(thirdTab);
         menu.Add(fourthTab);
+        menu.Add(fifthTab);
 
         return menu;
     }

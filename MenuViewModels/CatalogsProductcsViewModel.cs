@@ -3,8 +3,6 @@
 public partial class CatalogsProductcsViewModel(ICustomDialogService dialogService) : ObservableObject
 {
 
-    public void SetDialogService(ICustomDialogService service) => dialogService = service;
-
 
     [RelayCommand]
     public void SaveToDatabase()
@@ -12,6 +10,6 @@ public partial class CatalogsProductcsViewModel(ICustomDialogService dialogServi
 
         // Implement saving logic here
 
-        dialogService.ShowAsync("success.gif");
+        dialogService.Show("success.gif");
     }
 }

@@ -2,7 +2,7 @@
 
 public interface ICustomDialogService {
 
-    void ShowAsync(string imageSource, string message = "Guardado satisfactoriamente");
+    void Show(string imageSource, string message = "Guardado satisfactoriamente");
 
-    void HideAsync();
+    void Hide();
 }
