@@ -1,13 +1,16 @@
 ﻿namespace TextileSystem.Helpers;
 
-public static class WindowFactory {
+public static class WindowFactory
+{
 
     private static Window? _window;
 
     public static void CreateCentered<TPage>(string title, double width, double height)
-        where TPage : Page {
+        where TPage : Page
+    {
 
-        if(_window != null) {
+        if (_window != null)
+        {
             Application.Current?.ActivateWindow(_window);
             return;
         }
@@ -19,7 +22,8 @@ public static class WindowFactory {
         var screenWidth = displayInfo.Width / displayInfo.Density;
         var screenHeight = displayInfo.Height / displayInfo.Density;
 
-        _window = new Window(page) {
+        _window = new Window(page)
+        {
             Title = title,
             Width = width,
             Height = height,

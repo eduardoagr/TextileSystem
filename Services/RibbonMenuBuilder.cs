@@ -2,104 +2,113 @@
 
 public static class MenuFactory
 {
-    public static IList<MenuSection> CreateMenu()
+    public static IList<MenuSection> CreateMenu(ILocalizationResourceManager loc)
     {
-
         var menu = new List<MenuSection>();
 
         var firstTab = new MenuSection
         {
-            Title = "Captura & Consulta",
-            Groups = [
-                new MenuGroup {
-                    Title = "Venta consulta",
-                    Tiles = [
-                        new MenuTile { Title = "General", Action = MenuTile.MenuAction.VentaConsultaGeneral },
-                        new MenuTile { Title = "Historico", Action = MenuTile.MenuAction.VentaConsultaHistorico },
+            Title = loc["Menu_Capture"],
+            Groups =
+            [
+                new MenuGroup
+                {
+                    Title = loc["Section_SalesQuery"],
+                    Tiles =
+                    [
+                        new MenuTile { Title = loc["Tile_General"], Action = MenuTile.MenuAction.VentaConsultaGeneral },
+                        new MenuTile { Title = loc["Tile_Historic"], Action = MenuTile.MenuAction.VentaConsultaHistorico },
                     ]
                 },
-                new MenuGroup {
-                    Title = "Consulta de stocks",
-                    Tiles = [
-                        new MenuTile { Title = "General", Action = MenuTile.MenuAction.StockConsultaGeneral},
-                        new MenuTile { Title = "Almacenes", Action = MenuTile.MenuAction.StockConsultaAlmacenes },
+                new MenuGroup
+                {
+                    Title = loc["Section_StockQuery"],
+                    Tiles =
+                    [
+                        new MenuTile { Title =  loc["Tile_StocksGeneral"], Action = MenuTile.MenuAction.StockConsultaGeneral },
+                        new MenuTile { Title =  loc["Tile_StocksWarehouses"], Action = MenuTile.MenuAction.StockConsultaAlmacenes },
                     ]
                 },
-                new MenuGroup {
-                    Title = "Traspasos generales",
-                    Tiles = [
-                        new MenuTile { Title = "Captura", Action = MenuTile.MenuAction.TraspasoCaptura },
-                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.TraspasoConsulta },
+                new MenuGroup
+                {
+                    Title = loc["Section_Transfers"],
+                    Tiles =
+                    [
+                        new MenuTile { Title = loc["Tile_TransferCapture"], Action = MenuTile.MenuAction.TraspasoCaptura },
+                        new MenuTile { Title = loc["Tile_TransferQuery"], Action = MenuTile.MenuAction.TraspasoConsulta },
                     ]
                 },
-                new MenuGroup {
-                    Title = "Ventas",
-                    Tiles = [
-                        new MenuTile { Title = "Captura", Action = MenuTile.MenuAction.VentaCaptura },
-                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.VentaConsulta }
+                new MenuGroup
+                {
+                    Title = loc["Section_Sales"],
+                    Tiles =
+                    [
+                        new MenuTile { Title = loc["Tile_SalesCapture"], Action = MenuTile.MenuAction.VentaCaptura },
+                        new MenuTile { Title = loc["Tile_SalesQuery"], Action = MenuTile.MenuAction.VentaConsulta }
                     ]
                 },
-                new MenuGroup {
-                    Title = "Compras",
-                    Tiles = [
-                        new MenuTile { Title = "Compras", Action = MenuTile.MenuAction.CompraCaptura },
-                        new MenuTile { Title = "Consulta", Action = MenuTile.MenuAction.CompraConsulta }
+                new MenuGroup
+                {
+                    Title = loc["Section_Purchases"],
+                    Tiles =
+                    [
+                        new MenuTile { Title = loc["Tile_PurchaseCapture"], Action = MenuTile.MenuAction.CompraCaptura },
+                        new MenuTile { Title = loc["Tile_PurchaseQuery"], Action = MenuTile.MenuAction.CompraConsulta }
                     ]
                 },
             ]
         };
+
         var secondTab = new MenuSection
         {
-            Title = "Catalogos",
-            Groups = [
-                new MenuGroup {
+            Title = loc["Menu_Catalogs"],
+            Groups =
+            [
+                new MenuGroup
+                {
                     Title = "Principales",
-                    Tiles =[
-                        new MenuTile { Title = "Clientes", Action = MenuTile.MenuAction.Clientes },
-                        new MenuTile { Title = "Proveedores", Action = MenuTile.MenuAction.Proveedores },
-                        new MenuTile { Title = "Usuarios", Action = MenuTile.MenuAction.Usuarios },
-                        new MenuTile { Title = "Productos", Action = MenuTile.MenuAction.Productos },
-                        new MenuTile { Title = "Colores", Action = MenuTile.MenuAction.Colores },
+                    Tiles =
+                    [
+                        new MenuTile { Title = "Clientes", Action = MenuTile.MenuAction.ClientesConsulta },
+                        new MenuTile { Title = "Proveedores", Action = MenuTile.MenuAction.ProveedoresConsulta },
+                        new MenuTile { Title = "Usuarios", Action = MenuTile.MenuAction.UsuariosConsulta },
+                        new MenuTile { Title = "Productos", Action = MenuTile.MenuAction.ProductosConsulta },
+                        new MenuTile { Title = "Colores", Action = MenuTile.MenuAction.ColoresConsulta },
                     ]
                 }
             ]
         };
+
         var thirdTab = new MenuSection
         {
-            Title = "Movimientos portales",
-            Groups = [
-              new MenuGroup {
-                  Title = "Firmar movimientos",
-                  Tiles =[
-                      new MenuTile { Title = "Firmar", Action = MenuTile.MenuAction.FirmarMovimiento },
-                      new MenuTile { Title = "Firmar consultar", Action = MenuTile.MenuAction.FirmarMovimientoConsulta },
-                  ]
-              }
+            Title = loc["Menu_PortalMovements"],
+            Groups =
+            [
+                new MenuGroup
+                {
+                    Title = "Firmar movimientos",
+                    Tiles =
+                    [
+                        new MenuTile { Title = "Firmar", Action = MenuTile.MenuAction.FirmarMovimiento },
+                        new MenuTile { Title = "Firmar consultar", Action = MenuTile.MenuAction.FirmarMovimientoConsulta },
+                    ]
+                }
             ]
         };
+
         var fourthTab = new MenuSection
         {
-            Title = "Analisis de datos",
-            Groups = [
-                new MenuGroup {
+            Title = loc["Menu_DataAnalysis"],
+            Groups =
+            [
+                new MenuGroup
+                {
                     Title = "Informes",
-                    Tiles = [
+                    Tiles =
+                    [
                         new MenuTile { Title = "Negaivos", Action = MenuTile.MenuAction.InformeNegativos },
                         new MenuTile { Title = "Ajustes", Action = MenuTile.MenuAction.InformeAjustes },
                         new MenuTile { Title = "Movimientos", Action = MenuTile.MenuAction.InformeMovimientos },
-                    ]
-                }
-            ]
-        };
-        var fifthTab = new MenuSection
-        {
-            Title = "Configuración",
-            Groups = [
-                new MenuGroup {
-                    Title = "Ajustes del sistema",
-                    Tiles = [
-                        new MenuTile { Title = "Cotores de los tiles", Action = MenuTile.MenuAction.ColoresDeTiles},
-                        new MenuTile { Title = "Idioma", Action = MenuTile.MenuAction.Idioma},
                     ]
                 }
             ]
@@ -109,9 +118,7 @@ public static class MenuFactory
         menu.Add(secondTab);
         menu.Add(thirdTab);
         menu.Add(fourthTab);
-        menu.Add(fifthTab);
 
         return menu;
     }
 }
-

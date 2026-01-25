@@ -61,6 +61,7 @@
 
 	<ItemGroup>
 	  <MauiFont Remove="C:\Users\egome\.nuget\packages\syncfusion.maui.core\32.1.23\buildTransitive\..\buildTransitive\Resources\Fonts\MauiMaterialAssets.ttf" />
+	  <MauiFont Remove="C:\Users\egome\.nuget\packages\syncfusion.maui.core\32.1.24\buildTransitive\..\buildTransitive\Resources\Fonts\MauiMaterialAssets.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,19 +79,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Languages\AppResources.resx">
+	    <Generator></Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 		<MauiXaml Update="Controls\BusyButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\MenuTile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsClients.xaml">
+	  <MauiXaml Update="MenuViews\CatalogsClientsConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsProvider.xaml">
+	  <MauiXaml Update="MenuViews\CatalogsColorsConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsUsers.xaml">
+	  <MauiXaml Update="MenuViews\CatalogsProductConsult.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MenuViews\CatalogsProvidersConsult.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MenuViews\CatalogsUsersConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AppShell.xaml">
@@ -100,12 +113,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsColors.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsProductcs.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

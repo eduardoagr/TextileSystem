@@ -5,23 +5,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="Root">
 
-    <Border Margin="2" BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="10"
+        VerticalOptions="Center">
 
-        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <!--  BORDER WITH IMAGE ONLY  -->
+        <Border Margin="8" BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-            <Image
-                HeightRequest="48"
-                Source="{Binding Tile.Icon, Source={x:Reference Root}}"
-                WidthRequest="48" />
+                <Image
+                    HeightRequest="48"
+                    Source="{Binding Tile.Icon, Source={x:Reference Root}}"
+                    WidthRequest="48" />
 
-            <Label
-                Padding="5"
-                FontSize="12"
-                LineBreakMode="CharacterWrap"
-                Text="{Binding Tile.Title, Source={x:Reference Root}}"
-                TextColor="White" />
+            </VerticalStackLayout>
+        </Border>
 
-        </VerticalStackLayout>
-    </Border>
+        <!--  LABEL OUTSIDE THE BORDER  -->
+        <Label
+            Margin="0,-14,0,0"
+            FontAttributes="Bold"
+            FontSize="12"
+            HorizontalTextAlignment="Center"
+            LineBreakMode="CharacterWrap"
+            Text="{Binding Tile.Title, Source={x:Reference Root}}" />
+
+    </VerticalStackLayout>
+
 
 </ContentView>

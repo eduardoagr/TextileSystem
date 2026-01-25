@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TextileSystem.MenuViews.CatalogsColorsConsult"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TextileSystem.Controls"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+    xmlns:vm="clr-namespace:TextileSystem.MenuViewModels"
+    x:DataType="vm:CatalogsColorsConsultViewModel">
+
+    <Grid
+        Padding="10"
+        ColumnDefinitions="400,*"
+        RowDefinitions="46,*"
+        RowSpacing="10">
+
+        <editors:SfComboBox WidthRequest="400" />
+        <controls:CustomButton
+            x:Name="PopupAnchor"
+            Grid.Column="1"
+            Command="{x:Binding CreateNewColorCommand}"
+            CornerRadius="8"
+            HorizontalOptions="End"
+            Text="Nuevo color"
+            VerticalOptions="Center" />
+
+        <Border Grid.Row="1" Grid.ColumnSpan="2">
+            <CollectionView>
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="*,60">
+                        <Label FontAttributes="Bold" Text="Nombre" />
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Estado" />
+                    </Grid>
+                </CollectionView.Header>
+            </CollectionView>
+        </Border>
+
+        <sfPopup:SfPopup
+            AnimationMode="Zoom"
+            AutoSizeMode="Height"
+            IsOpen="{x:Binding IsCreateColorDialogOpen}"
+            RelativePosition="AlignBottomRight"
+            RelativeView="{x:Reference PopupAnchor}"
+            ShowHeader="False"
+            StaysOpen="True"
+            WidthRequest="400">
+            <sfPopup:SfPopup.PopupStyle>
+                <sfPopup:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </sfPopup:SfPopup.PopupStyle>
+            <sfPopup:SfPopup.ContentTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" RowDefinitions="80,*">
+                        <input:SfTextInputLayout Hint="Color">
+                            <Entry Text="{x:Binding NewColor}" />
+                        </input:SfTextInputLayout>
+                        <HorizontalStackLayout
+                            Grid.Row="1"
+                            HorizontalOptions="End"
+                            Spacing="10">
+                            <controls:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="borrar" />
+                            <controls:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="Guardar" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </sfPopup:SfPopup.ContentTemplate>
+        </sfPopup:SfPopup>
+    </Grid>
+</ContentPage>

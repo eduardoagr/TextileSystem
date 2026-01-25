@@ -5,34 +5,51 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="root">
 
-    <Grid HeightRequest="60">
-        <Button
-            Command="{x:Binding Command,
-                                Source={x:Reference root}}"
-            CornerRadius="8"
-            IsEnabled="{x:Binding IsNotBusy,
-                                  Source={x:Reference root}}" />
+    <Border
+        Padding="10"
+        BackgroundColor="{x:Binding Color,
+                                    Source={x:Reference root}}"
+        IsEnabled="{x:Binding IsNotBusy,
+                              Source={x:Reference root}}"
+        StrokeShape="RoundRectangle 8">
 
-        <StackLayout
-            HorizontalOptions="Center"
-            Orientation="Horizontal"
-            Spacing="10"
-            VerticalOptions="Center">
+        <Border.Triggers>
 
-            <ActivityIndicator
-                HeightRequest="22"
-                IsRunning="{x:Binding IsBusy,
-                                      Source={x:Reference root}}"
-                IsVisible="{x:Binding IsBusy,
-                                      Source={x:Reference root}}"
-                WidthRequest="22"
-                Color="{x:Binding Color,
-                                  Source={x:Reference root}}" />
+            <!--  When busy, override background color  -->
+            <DataTrigger
+                Binding="{Binding IsBusy, Source={x:Reference root}}"
+                TargetType="Border"
+                Value="True">
+                <Setter Property="BackgroundColor" Value="#72808080" />
+                <!--  Disabled gray  -->
+            </DataTrigger>
 
-            <Label
-                FontAttributes="Bold"
-                Text="{Binding Text, Source={x:Reference root}}"
-                TextColor="White" />
-        </StackLayout>
-    </Grid>
+        </Border.Triggers>
+
+        <Grid>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                <ActivityIndicator
+                    HeightRequest="20"
+                    IsRunning="{x:Binding IsBusy,
+                                          Source={x:Reference root}}"
+                    IsVisible="{x:Binding IsBusy,
+                                          Source={x:Reference root}}"
+                    WidthRequest="20"
+                    Color="White" />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Binding Text,
+                                     Source={x:Reference root}}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Grid>
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Command="{x:Binding Command, Source={x:Reference root}}" />
+        </Border.GestureRecognizers>
+
+    </Border>
+
+
 </ContentView>

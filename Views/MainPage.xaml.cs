@@ -3,7 +3,7 @@ namespace TextileSystem.Views;
 public partial class MainPage : ContentPage
 {
 
-    public MainPage(MainPageViewModel mainPageViewModel, IWindowService windowService)
+    public MainPage(MainPageViewModel mainPageViewModel)
     {
         InitializeComponent();
 

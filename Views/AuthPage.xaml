@@ -8,10 +8,7 @@
     xmlns:vm="clr-namespace:TextileSystem.ViewModels"
     x:DataType="vm:AuthPageViewModel">
 
-    <Grid
-        Margin="20"
-        RowDefinitions="80,80,80"
-        VerticalOptions="Center">
+    <VerticalStackLayout Margin="20" VerticalOptions="Center">
 
         <input:SfTextInputLayout Hint="Usuario">
             <Entry />
@@ -23,9 +20,10 @@
 
         <controls:BusyButton
             Grid.Row="2"
-            Margin="0,20,0,0"
             Command="{x:Binding SignInCommand}"
             IsBusy="{x:Binding isBusy}"
-            Text="Login" />
-    </Grid>
+            Text="Login"
+            Color="#481662" />
+
+    </VerticalStackLayout>
 </ContentPage>

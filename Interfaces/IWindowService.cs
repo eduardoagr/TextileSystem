@@ -1,7 +1,7 @@
-﻿namespace TextileSystem.Interfaces {
+﻿namespace TextileSystem.Interfaces; 
 
-    public interface IWindowService {
+public interface IWindowService {
 
-        void MaximizeCurrentWindow();
-    }
+    void MaximizeCurrentWindow();
+
 }

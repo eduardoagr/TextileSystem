@@ -65,11 +65,11 @@ public partial class MenuTile : ObservableObject
         CompraConsulta,
 
         // Catálogos
-        Clientes,
-        Proveedores,
-        Usuarios,
-        Productos,
-        Colores,
+        ClientesConsulta,
+        ProveedoresConsulta,
+        UsuariosConsulta,
+        ProductosConsulta,
+        ColoresConsulta,
 
         // Portales
         FirmarMovimiento,
@@ -79,9 +79,5 @@ public partial class MenuTile : ObservableObject
         InformeNegativos,
         InformeAjustes,
         InformeMovimientos,
-
-        // Configuración
-        ColoresDeTiles,
-        Idioma
     }
 }

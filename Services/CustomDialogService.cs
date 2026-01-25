@@ -30,7 +30,7 @@ public class CustomDialogService : ICustomDialogService
             ShowOverlayAlways = true,
             OverlayMode = PopupOverlayMode.Blur,
             ShowHeader = false,
-            PopupStyle = new PopupStyle { CornerRadius = 16 },
+            PopupStyle = new PopupStyle { CornerRadius = 16, HasShadow = true },
             ContentTemplate = CreateContentTemplate()
         };
     }

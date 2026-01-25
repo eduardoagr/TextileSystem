@@ -1,13 +1,16 @@
 ﻿namespace TextileSystem.Controls;
 
-public partial class CustomButton : Button {
+public partial class CustomButton : Button
+{
 
-    public CustomButton() {
+    public CustomButton()
+    {
 
         // Add the TouchBehavior automatically
-        var touch = new TouchBehavior {
+        var touch = new TouchBehavior
+        {
 
-            DefaultBackgroundColor = Colors.Transparent,
+            DefaultBackgroundColor = null,
             HoveredBackgroundColor = Colors.Green,
         };
 

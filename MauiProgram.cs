@@ -10,7 +10,13 @@ public static class MauiProgram
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-        }).UseMauiCommunityToolkit();
+            fonts.AddFont("MaterialIcons-Regular.ttf", "Mi");
+
+        }).UseMauiCommunityToolkit().UseLocalizationResourceManager(settings =>
+        {
+            settings.AddResource(AppResources.ResourceManager);
+            settings.RestoreLatestCulture(true);
+        });
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
@@ -27,20 +33,20 @@ public static class MauiProgram
 
         #region Menu items
 
-        builder.Services.AddTransient<CatalogsProductcsViewModel>();
-        builder.Services.AddTransient<CatalogsProductcs>();
+        builder.Services.AddTransient<CatalogsProductConsult>();
+        builder.Services.AddTransient<CatalogsProductConsultViewModel>();
 
-        builder.Services.AddTransient<CatalogsColors>();
-        builder.Services.AddTransient<CatalogsColorsViewModel>();
+        builder.Services.AddTransient<CatalogsColorsConsult>();
+        builder.Services.AddTransient<CatalogsColorsConsultViewModel>();
 
-        builder.Services.AddTransient<CatalogsClients>();
-        builder.Services.AddTransient<CatalogsClientsViewModel>();
+        builder.Services.AddTransient<CatalogsUsersConsult>();
+        builder.Services.AddTransient<CatalogsUsersConsultViewModel>();
 
-        builder.Services.AddTransient<CatalogsProvider>();
-        builder.Services.AddTransient<CatalogsProviderViewModel>();
+        builder.Services.AddTransient<CatalogsProvidersConsult>();
+        builder.Services.AddTransient<CatalogsProvidersConsultViewModel>();
 
-        builder.Services.AddTransient<CatalogsUsers>();
-        builder.Services.AddTransient<CatalogsUsersViewModel>();
+        builder.Services.AddTransient<CatalogsClientsConsult>();
+        builder.Services.AddTransient<CatalogsClientsConsultViewModel>();
 
         #endregion
 
