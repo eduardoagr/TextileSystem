@@ -66,14 +66,15 @@ public static class MenuFactory
             [
                 new MenuGroup
                 {
-                    Title = "Principales",
+                    Title = loc["Menu_Catalogs_Main"],
                     Tiles =
                     [
-                        new MenuTile { Title = "Clientes", Action = MenuTile.MenuAction.ClientesConsulta },
-                        new MenuTile { Title = "Proveedores", Action = MenuTile.MenuAction.ProveedoresConsulta },
-                        new MenuTile { Title = "Usuarios", Action = MenuTile.MenuAction.UsuariosConsulta },
-                        new MenuTile { Title = "Productos", Action = MenuTile.MenuAction.ProductosConsulta },
-                        new MenuTile { Title = "Colores", Action = MenuTile.MenuAction.ColoresConsulta },
+                        new MenuTile { Title = loc["Menu_Catalogs_Main_Clients"],   Action = MenuTile.MenuAction.ClientesConsulta },
+                        new MenuTile { Title = loc["Menu_Catalogs_Main_Suppliers"], Action = MenuTile.MenuAction.ProveedoresConsulta },
+                        new MenuTile { Title = loc["Menu_Catalogs_Main_Users"],     Action = MenuTile.MenuAction.UsuariosConsulta },
+                        new MenuTile { Title = loc["Menu_Catalogs_Main_Products"],  Action = MenuTile.MenuAction.ProductosConsulta },
+                        new MenuTile { Title = loc["Menu_Catalogs_Main_Colors"],    Action = MenuTile.MenuAction.ColoresConsulta },
+
                     ]
                 }
             ]
@@ -86,11 +87,11 @@ public static class MenuFactory
             [
                 new MenuGroup
                 {
-                    Title = "Firmar movimientos",
+                    Title = loc["Menu_PortalMovements_Main"],
                     Tiles =
                     [
-                        new MenuTile { Title = "Firmar", Action = MenuTile.MenuAction.FirmarMovimiento },
-                        new MenuTile { Title = "Firmar consultar", Action = MenuTile.MenuAction.FirmarMovimientoConsulta },
+                        new MenuTile { Title = loc["Menu_PortalMovements_Main_Sign"],      Action = MenuTile.MenuAction.FirmarMovimiento },
+                        new MenuTile { Title = loc["Menu_PortalMovements_Main_SignQuery"], Action = MenuTile.MenuAction.FirmarMovimientoConsulta },
                     ]
                 }
             ]
@@ -103,12 +104,12 @@ public static class MenuFactory
             [
                 new MenuGroup
                 {
-                    Title = "Informes",
+                    Title = loc["Menu_DataAnalysis_Main"],
                     Tiles =
                     [
-                        new MenuTile { Title = "Negaivos", Action = MenuTile.MenuAction.InformeNegativos },
-                        new MenuTile { Title = "Ajustes", Action = MenuTile.MenuAction.InformeAjustes },
-                        new MenuTile { Title = "Movimientos", Action = MenuTile.MenuAction.InformeMovimientos },
+                         new MenuTile { Title = loc["Menu_DataAnalysis_Main_Negatives"],  Action = MenuTile.MenuAction.InformeNegativos },
+                         new MenuTile { Title = loc["Menu_DataAnalysis_Main_Adjustments"], Action = MenuTile.MenuAction.InformeAjustes },
+                         new MenuTile { Title = loc["Menu_DataAnalysis_Main_Movements"],  Action = MenuTile.MenuAction.InformeMovimientos }
                     ]
                 }
             ]

@@ -123,11 +123,50 @@
   <data name="Menu_Catalogs" xml:space="preserve">
     <value>Catálogos</value>
   </data>
+  <data name="Menu_Catalogs_Main" xml:space="preserve">
+    <value>Principales</value>
+  </data>
+  <data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
+    <value>Colores</value>
+  </data>
+  <data name="Menu_Catalogs_Main_Products" xml:space="preserve">
+    <value>Productos</value>
+  </data>
+  <data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="Menu_Catalogs_Main_Users" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
   <data name="Menu_DataAnalysis" xml:space="preserve">
     <value>Análisis de datos</value>
   </data>
+  <data name="Menu_DataAnalysis_Main" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
+  <data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
+    <value>Movimientos</value>
+  </data>
+  <data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
+    <value>Negativos</value>
+  </data>
   <data name="Menu_PortalMovements" xml:space="preserve">
     <value>Movimientos portales</value>
+  </data>
+  <data name="Menu_PortalMovements_Main" xml:space="preserve">
+    <value>Firmar movimientos</value>
+  </data>
+  <data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
+    <value>Firmar</value>
+  </data>
+  <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
+    <value>Firmar consultar</value>
   </data>
   <data name="Menu_Settings" xml:space="preserve">
     <value>Configuración</value>

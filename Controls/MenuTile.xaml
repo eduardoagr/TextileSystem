@@ -26,7 +26,7 @@
         <Label
             Margin="0,-14,0,0"
             FontAttributes="Bold"
-            FontSize="12"
+            FontSize="10"
             HorizontalTextAlignment="Center"
             LineBreakMode="CharacterWrap"
             Text="{Binding Tile.Title, Source={x:Reference Root}}" />

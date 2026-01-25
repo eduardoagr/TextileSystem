@@ -18,7 +18,6 @@ global using Syncfusion.Licensing;
 global using Syncfusion.Maui.Core.Hosting;
 global using Syncfusion.Maui.Popup;
 
-global using TextileSystem;
 global using TextileSystem.Constants;
 global using TextileSystem.Helpers;
 global using TextileSystem.Interfaces;
@@ -29,3 +28,5 @@ global using TextileSystem.Resources.Languages;
 global using TextileSystem.Services;
 global using TextileSystem.ViewModels;
 global using TextileSystem.Views;
+
+global using XmlnsPrefixAttribute = Microsoft.Maui.Controls.XmlnsPrefixAttribute;

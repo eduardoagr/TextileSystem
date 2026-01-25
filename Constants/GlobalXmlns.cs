@@ -1,0 +1,19 @@
+﻿[assembly: XmlnsDefinition(
+    "http://schemas.textilesystem.com/maui",
+    "TextileSystem.Controls")]
+
+[assembly: XmlnsDefinition(
+    "http://schemas.textilesystem.com/maui",
+    "TextileSystem.ViewModels")]
+
+[assembly: XmlnsDefinition(
+    "http://schemas.textilesystem.com/maui",
+    "TextileSystem.Helpers")]
+
+[assembly: XmlnsDefinition(
+    "http://schemas.textilesystem.com/maui",
+    "TextileSystem.Models")]
+
+[assembly: XmlnsPrefix(
+    "http://schemas.textilesystem.com/maui",
+    "app")]

@@ -3,10 +3,9 @@
     x:Class="TextileSystem.Views.AuthPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:TextileSystem.Controls"
+    xmlns:app="http://schemas.textilesystem.com/maui"
     xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-    xmlns:vm="clr-namespace:TextileSystem.ViewModels"
-    x:DataType="vm:AuthPageViewModel">
+    x:DataType="app:AuthPageViewModel">
 
     <VerticalStackLayout Margin="20" VerticalOptions="Center">
 
@@ -18,7 +17,7 @@
             <Entry />
         </input:SfTextInputLayout>
 
-        <controls:BusyButton
+        <app:BusyButton
             Grid.Row="2"
             Command="{x:Binding SignInCommand}"
             IsBusy="{x:Binding isBusy}"
