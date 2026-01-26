@@ -1,46 +1,29 @@
 ﻿namespace TextileSystem.ViewModels.Base;
 
-public abstract partial class ViewModelBase<T>(
-    IShellService shellService, IMessenger messenger) : ObservableObject
-    where T : class, INotifyPropertyChanged {
+public abstract partial class CatalogConsultViewModel<TModel>(ICustomDialogService dialogService) : ObservableObject
+    where TModel : class, new() {
 
-    private T? _trackedModel;
-    private PropertyChangedEventHandler? _propertyChangedHandler;
-    protected readonly IMessenger Messenger = messenger;
+    [ObservableProperty]
+    public partial bool IsDialogOpen { get; set; }
 
-    protected void TrackModel(T model, params IRelayCommand[] commands) {
-        if(_trackedModel != null && _propertyChangedHandler != null)
-        {
-            _trackedModel.PropertyChanged -= _propertyChangedHandler;
-        }
+    [ObservableProperty]
+    public partial TModel NewItem { get; set; } = new TModel();
 
-        _propertyChangedHandler = (_, _) => {
-            foreach(var cmd in commands)
-            {
-                cmd.NotifyCanExecuteChanged();
-            }
-        };
+    [RelayCommand]
+    void CreateNew() {
 
-        model.PropertyChanged += _propertyChangedHandler;
-
-        _trackedModel = model;
-
-        foreach(var cmd in commands)
-        {
-            cmd.NotifyCanExecuteChanged();
-        }
+        IsDialogOpen = true;
+        NewItem = new TModel();
     }
 
-    // Shell Helpers...
-    protected async Task DisplayAlertAsync(string title, string message, string cancel) =>
-        await shellService.DisplayAlertAsync(title, message, cancel);
+    [RelayCommand]
+    void SaveToDatabase() {
 
-    protected async Task<bool> DisplayConfirmAsync(string title, string message, string accept, string cancel) =>
-        await shellService.DisplayConfirmAsync(title, message, accept, cancel);
+        dialogService.Show("success.gif");
+    }
 
-
-    // Navigation helpers...
-    protected async Task NavigateAsync(string route) => await shellService.NavigateToAsync(route);
-    protected async Task NavigateAsync(string route, IDictionary<string, object> parameters) => await shellService.NavigateToAsync(route, parameters);
-    protected async Task NavigateBackAsync() => await shellService.NavigateBackAsync();
+    [RelayCommand]
+    void ResetModel() {
+        NewItem = new TModel();
+    }
 }

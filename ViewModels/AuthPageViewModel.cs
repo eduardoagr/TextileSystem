@@ -1,6 +1,6 @@
 ﻿namespace TextileSystem.ViewModels;
 
-public partial class AuthPageViewModel(IWindowService windowService) : ObservableObject {
+public partial class AuthPageViewModel(IWindowService windowService, ShellService shellService) : ObservableObject {
 
     [ObservableProperty]
     public partial bool isBusy { get; set; }
@@ -16,12 +16,12 @@ public partial class AuthPageViewModel(IWindowService windowService) : Observabl
 
         if(idiom == DeviceIdiom.Desktop) {
 
-            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+            await shellService.NavigateToAsync($"//{nameof(MainPage)}");
 
             windowService.MaximizeCurrentWindow();
 
         } else if(idiom == DeviceIdiom.Phone) {
-            await Shell.Current.DisplayAlertAsync("Notice", "Sign-in is not available on Phone devices.", "OK");
+            await shellService.DisplayAlertAsync("Notice", "Sign-in is not available on Phone devices.", "OK");
         }
 
         isBusy = false;
