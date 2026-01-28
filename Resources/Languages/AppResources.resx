@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Menu_Capture" xml:space="preserve">
-    <value>Captura &amp; Consulta</value>
+    <value>Captura y consulta</value>
   </data>
   <data name="Menu_Catalogs" xml:space="preserve">
     <value>Catálogos</value>
@@ -157,7 +157,7 @@
     <value>Negativos</value>
   </data>
   <data name="Menu_PortalMovements" xml:space="preserve">
-    <value>Movimientos portales</value>
+    <value>Movimientos de portales</value>
   </data>
   <data name="Menu_PortalMovements_Main" xml:space="preserve">
     <value>Firmar movimientos</value>
@@ -166,16 +166,19 @@
     <value>Firmar</value>
   </data>
   <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
-    <value>Firmar consultar</value>
+    <value>Consultar firmas</value>
+  </data>
+  <data name="Section_Purchases" xml:space="preserve">
+    <value>Compras</value>
   </data>
   <data name="Section_Sales" xml:space="preserve">
     <value>Ventas</value>
   </data>
   <data name="Section_SalesQuery" xml:space="preserve">
-    <value>Venta consulta</value>
+    <value>Consulta de ventas</value>
   </data>
   <data name="Section_StockQuery" xml:space="preserve">
-    <value>Consulta de stocks</value>
+    <value>Consulta de stock</value>
   </data>
   <data name="Section_Transfers" xml:space="preserve">
     <value>Traspasos generales</value>
@@ -210,11 +213,11 @@
   <data name="Tile_TransferQuery" xml:space="preserve">
     <value>Consulta</value>
   </data>
-  <data name="Section_Purchases" xml:space="preserve">
-    <value>Compras</value>
-  </data>
   <data name="Menu_Settings" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="Ui_Login" xml:space="preserve">
+    <value>Iniciar sesión</value>
   </data>
   <data name="Ui_Username" xml:space="preserve">
     <value>Nombre de usuario</value>
@@ -222,20 +225,11 @@
   <data name="Ui_Password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-  <data name="Ui_Login" xml:space="preserve">
-    <value>iniciar sesión</value>
-  </data>
-  <data name="Settings_en" xml:space="preserve">
-    <value>Ingles</value>
-  </data>
-  <data name="Settings_es" xml:space="preserve">
-    <value>Español</value>
-  </data>
   <data name="Ui_language" xml:space="preserve">
     <value>Idioma</value>
   </data>
   <data name="Ui_MenuColor" xml:space="preserve">
-    <value>Color del menu</value>
+    <value>Color del menú</value>
   </data>
   <data name="Ui_Name" xml:space="preserve">
     <value>Nombre</value>
@@ -253,7 +247,7 @@
     <value>Estado</value>
   </data>
   <data name="Ui_NewClient" xml:space="preserve">
-    <value>Nuevo Cliente</value>
+    <value>Nuevo cliente</value>
   </data>
   <data name="Ui_NewColor" xml:space="preserve">
     <value>Nuevo color</value>
@@ -261,11 +255,11 @@
   <data name="Ui_NewProduct" xml:space="preserve">
     <value>Nuevo producto</value>
   </data>
-  <data name="Ui_Product" xml:space="preserve">
-    <value>Producto</value>
-  </data>
   <data name="Ui_NewSupplier" xml:space="preserve">
     <value>Nuevo proveedor</value>
+  </data>
+  <data name="Ui_Product" xml:space="preserve">
+    <value>Producto</value>
   </data>
   <data name="Ui_Price" xml:space="preserve">
     <value>Precio</value>
@@ -275,5 +269,29 @@
   </data>
   <data name="Ui_Save" xml:space="preserve">
     <value>Guardar</value>
+  </data>
+  <data name="Settings_en" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="Settings_es" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Settings_zh" xml:space="preserve">
+    <value>Chino</value>
+  </data>
+  <data name="Screen_ClientsConsult" xml:space="preserve">
+    <value>Consult clients</value>
+  </data>
+  <data name="Screen_SuppliersConsult" xml:space="preserve">
+    <value>Consultar proveedores</value>
+  </data>
+  <data name="Screen_UsersConsult" xml:space="preserve">
+    <value>Consultar usuarios</value>
+  </data>
+  <data name="Screen_ProductsConsult" xml:space="preserve">
+    <value>Consultar productos</value>
+  </data>
+  <data name="Screen_ColorsConsult" xml:space="preserve">
+    <value>Consultar colores</value>
   </data>
 </root>

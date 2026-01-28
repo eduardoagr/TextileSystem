@@ -118,180 +118,180 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Menu_Capture" xml:space="preserve">
-    <value>Capture &amp; Consulting </value>
+    <value>录入与查询</value>
   </data>
   <data name="Menu_Catalogs" xml:space="preserve">
-    <value>Catalogs</value>
+    <value>目录</value>
   </data>
   <data name="Menu_Catalogs_Main" xml:space="preserve">
-    <value>Main</value>
+    <value>主菜单</value>
   </data>
   <data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
-    <value>Clients</value>
+    <value>客户</value>
   </data>
   <data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
-    <value>Colors</value>
+    <value>颜色</value>
   </data>
   <data name="Menu_Catalogs_Main_Products" xml:space="preserve">
-    <value>Products</value>
+    <value>产品</value>
   </data>
   <data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
-    <value>Suppliers</value>
+    <value>供应商</value>
   </data>
   <data name="Menu_Catalogs_Main_Users" xml:space="preserve">
-    <value>Users</value>
+    <value>用户</value>
   </data>
   <data name="Menu_DataAnalysis" xml:space="preserve">
-    <value>Data analysis</value>
+    <value>数据分析</value>
   </data>
   <data name="Menu_DataAnalysis_Main" xml:space="preserve">
-    <value>Reports</value>
+    <value>报表</value>
   </data>
   <data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
-    <value>Adjustments</value>
+    <value>调整</value>
   </data>
   <data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
-    <value>Movements</value>
+    <value>变动</value>
   </data>
   <data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
-    <value>Negatives</value>
+    <value>负库存</value>
   </data>
   <data name="Menu_PortalMovements" xml:space="preserve">
-    <value>Portal movements</value>
+    <value>门户操作</value>
   </data>
   <data name="Menu_PortalMovements_Main" xml:space="preserve">
-    <value>Authorize movements</value>
+    <value>签署操作</value>
   </data>
   <data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
-    <value>Sign</value>
+    <value>签署</value>
   </data>
   <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
-    <value>Sign consult</value>
+    <value>签署查询</value>
   </data>
   <data name="Section_Purchases" xml:space="preserve">
-    <value>Purchases</value>
+    <value>采购</value>
   </data>
   <data name="Section_Sales" xml:space="preserve">
-    <value>Sales</value>
+    <value>销售</value>
   </data>
   <data name="Section_SalesQuery" xml:space="preserve">
-    <value>Consult Sales</value>
+    <value>销售查询</value>
   </data>
   <data name="Section_StockQuery" xml:space="preserve">
-    <value>Consult Stock </value>
+    <value>库存查询</value>
   </data>
   <data name="Section_Transfers" xml:space="preserve">
-    <value>General transfers</value>
+    <value>一般调拨</value>
   </data>
   <data name="Tile_General" xml:space="preserve">
-    <value>General</value>
+    <value>常规</value>
   </data>
   <data name="Tile_Historic" xml:space="preserve">
-    <value>History</value>
+    <value>历史</value>
   </data>
   <data name="Tile_PurchaseCapture" xml:space="preserve">
-    <value>Purchases</value>
+    <value>采购</value>
   </data>
   <data name="Tile_PurchaseQuery" xml:space="preserve">
-    <value>Consult </value>
+    <value>查询</value>
   </data>
   <data name="Tile_SalesCapture" xml:space="preserve">
-    <value>Capture</value>
+    <value>录入</value>
   </data>
   <data name="Tile_SalesQuery" xml:space="preserve">
-    <value>Consult </value>
+    <value>查询</value>
   </data>
   <data name="Tile_StocksGeneral" xml:space="preserve">
-    <value>General</value>
+    <value>总览</value>
   </data>
   <data name="Tile_StocksWarehouses" xml:space="preserve">
-    <value>Warehouses</value>
+    <value>仓库</value>
   </data>
   <data name="Tile_TransferCapture" xml:space="preserve">
-    <value>Capture</value>
+    <value>录入</value>
   </data>
   <data name="Tile_TransferQuery" xml:space="preserve">
-    <value>Consult</value>
+    <value>查询</value>
   </data>
   <data name="Menu_Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="Ui_Login" xml:space="preserve">
-    <value>login</value>
+    <value>登录</value>
   </data>
   <data name="Ui_Username" xml:space="preserve">
-    <value>Username</value>
+    <value>用户名</value>
   </data>
   <data name="Ui_Password" xml:space="preserve">
-    <value>Password</value>
+    <value>密码</value>
   </data>
   <data name="Ui_language" xml:space="preserve">
-    <value>Language</value>
+    <value>语言</value>
   </data>
   <data name="Ui_MenuColor" xml:space="preserve">
-    <value>Menu color</value>
+    <value>菜单颜色</value>
   </data>
   <data name="Ui_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>姓名</value>
   </data>
   <data name="Ui_Address" xml:space="preserve">
-    <value>Address</value>
+    <value>地址</value>
   </data>
   <data name="Ui_Phone" xml:space="preserve">
-    <value>Phone</value>
+    <value>电话</value>
   </data>
   <data name="Ui_Notes" xml:space="preserve">
-    <value>Notes</value>
+    <value>备注</value>
   </data>
   <data name="Ui_Status" xml:space="preserve">
-    <value>Status</value>
+    <value>状态</value>
   </data>
   <data name="Ui_NewClient" xml:space="preserve">
-    <value>New Client</value>
+    <value>新客户</value>
   </data>
   <data name="Ui_NewColor" xml:space="preserve">
-    <value>New Color</value>
+    <value>新颜色</value>
   </data>
   <data name="Ui_NewProduct" xml:space="preserve">
-    <value>New Product</value>
+    <value>新产品</value>
   </data>
   <data name="Ui_NewSupplier" xml:space="preserve">
-    <value>New Supplier</value>
+    <value>新供应商</value>
   </data>
   <data name="Ui_Product" xml:space="preserve">
-    <value>Product</value>
+    <value>产品</value>
   </data>
   <data name="Ui_Price" xml:space="preserve">
-    <value>Price</value>
+    <value>价格</value>
   </data>
   <data name="Ui_Clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>清空</value>
   </data>
   <data name="Ui_Save" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="Settings_en" xml:space="preserve">
-    <value>English</value>
+    <value>英语</value>
   </data>
   <data name="Settings_es" xml:space="preserve">
-    <value>Spanish</value>
+    <value>西班牙语</value>
   </data>
   <data name="Settings_zh" xml:space="preserve">
-    <value>Chinese</value>
+    <value>中文</value>
   </data>
   <data name="Screen_ClientsConsult" xml:space="preserve">
-    <value>Consultar clientes</value>
+    <value>查询客户</value>
   </data>
   <data name="Screen_SuppliersConsult" xml:space="preserve">
-    <value>Consult suppliers</value>
+    <value>查询供应商</value>
   </data>
   <data name="Screen_UsersConsult" xml:space="preserve">
-    <value>Consult users</value>
+    <value>查询用户</value>
   </data>
   <data name="Screen_ProductsConsult" xml:space="preserve">
-    <value>Consult products</value>
+    <value>查询产品</value>
   </data>
   <data name="Screen_ColorsConsult" xml:space="preserve">
-    <value>Consult colors</value>
+    <value>查询颜色</value>
   </data>
 </root>

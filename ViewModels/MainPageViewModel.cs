@@ -78,23 +78,23 @@ public partial class MainPageViewModel : ObservableObject {
                 // -----------------------------
 
                 case MenuTile.MenuAction.ClientesConsulta:
-                    WindowFactory.CreateCentered<CatalogsClientsConsult>("Consultar clientes", 1400, 800);
+                    WindowFactory.CreateCentered<CatalogsClientsConsult>(_loc["Screen_ClientsConsult"], 1400, 800);
                     break;
 
                 case MenuTile.MenuAction.ProveedoresConsulta:
-                    WindowFactory.CreateCentered<CatalogsProvidersConsult>("Consultar proveedores", 1400, 800);
+                    WindowFactory.CreateCentered<CatalogsProvidersConsult>(_loc["Screen_SuppliersConsult"], 1400, 800);
                     break;
 
                 case MenuTile.MenuAction.UsuariosConsulta:
-                    WindowFactory.CreateCentered<CatalogsUsersConsult>("Consultar ususrios", 600, 600);
+                    WindowFactory.CreateCentered<CatalogsUsersConsult>(_loc["Screen_UsersConsult"], 600, 600);
                     break;
 
                 case MenuTile.MenuAction.ProductosConsulta:
-                    WindowFactory.CreateCentered<CatalogsProductConsult>("Consultar productos", 600, 600);
+                    WindowFactory.CreateCentered<CatalogsProductConsult>(_loc["Screen_ProductsConsult"], 600, 600);
                     break;
 
                 case MenuTile.MenuAction.ColoresConsulta:
-                    WindowFactory.CreateCentered<CatalogsColorsConsult>("Consultar colores", 600, 600);
+                    WindowFactory.CreateCentered<CatalogsColorsConsult>(_loc["Screen_ColorsConsult"], 600, 600);
                     break;
 
                 // -----------------------------
@@ -148,6 +148,7 @@ public partial class MainPageViewModel : ObservableObject {
 
         // Save language code
         AppSettings.SetLanguage(value.Code);
+
 
         // Change culture
         _loc.CurrentCulture = new CultureInfo(value.Code);
