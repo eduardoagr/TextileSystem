@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:app="http://schemas.textilesystem.com/maui"
+    xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
     xmlns:sf="http://schemas.syncfusion.com/maui"
     x:DataType="app:CatalogsProductConsultViewModel">
 
@@ -21,7 +22,7 @@
             Command="{x:Binding CreateNewColorCommand}"
             CornerRadius="8"
             HorizontalOptions="End"
-            Text="Nuevo producto"
+            Text="{loc:Translate Ui_NewProduct}"
             VerticalOptions="Center" />
 
 
@@ -29,11 +30,11 @@
             <CollectionView>
                 <CollectionView.Header>
                     <Grid ColumnDefinitions="*,60">
-                        <Label FontAttributes="Bold" Text="Producto" />
+                        <Label FontAttributes="Bold" Text="{loc:Translate Ui_Product}" />
                         <Label
                             Grid.Column="1"
                             FontAttributes="Bold"
-                            Text="Precio" />
+                            Text="{loc:Translate Ui_Price}" />
                     </Grid>
                 </CollectionView.Header>
             </CollectionView>
@@ -58,7 +59,7 @@
                 <DataTemplate>
                     <Grid Padding="10" RowDefinitions="80,*">
 
-                        <sf:SfTextInputLayout Hint="Producto">
+                        <sf:SfTextInputLayout Hint="{loc:Translate Ui_Product}">
                             <Entry Text="{x:Binding NewProduct}" />
                         </sf:SfTextInputLayout>
 

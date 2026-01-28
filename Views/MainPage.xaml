@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:TextileSystem.Controls"
     xmlns:helpers="clr-namespace:TextileSystem.Helpers"
     xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
     xmlns:models="clr-namespace:TextileSystem.Models"
     xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
     xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
@@ -108,7 +109,7 @@
             HeightRequest="600"
             IsOpen="{x:Binding IsConfigurationsOpen}"
             ShowHeader="False"
-            WidthRequest="400">
+            WidthRequest="360">
             <sfPopup:SfPopup.PopupStyle>
                 <sfPopup:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
             </sfPopup:SfPopup.PopupStyle>
@@ -116,19 +117,20 @@
                 <DataTemplate>
                     <VerticalStackLayout Padding="10" Spacing="10">
                         <Border Padding="10">
-                            <Picker
-                                Title="Idioma del sistema"
-                                ItemsSource="{x:Binding Languages}"
-                                SelectedItem="{x:Binding SelectedLanguageItem, Mode=TwoWay}"/>
+                            <HorizontalStackLayout Spacing="12">
+                                <Label Text="{loc:Translate Ui_language}" VerticalTextAlignment="Center" />
+                                <Picker ItemsSource="{x:Binding Languages}" SelectedItem="{x:Binding SelectedLanguageItem, Mode=TwoWay}" />
+                            </HorizontalStackLayout>
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8" />
                             </Border.StrokeShape>
                         </Border>
                         <Border Padding="10">
                             <VerticalStackLayout Spacing="10">
-                                <Label Text="Color del menu" />
+                                <Label Text="{loc:Translate Ui_MenuColor}" />
                                 <inputs:SfColorPicker
-                                    ColorChangedCommand="{x:Binding ColorChangedCommand, Source={x:RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}"
+                                    ColorChangedCommand="{x:Binding ColorChangedCommand,
+                                                                    Source={x:RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}"
                                     ColorMode="Palette"
                                     HorizontalOptions="Start"
                                     IsInline="True" />

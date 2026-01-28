@@ -231,4 +231,43 @@
   <data name="Settings_es" xml:space="preserve">
     <value>Spanish</value>
   </data>
+  <data name="Ui_language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Ui_MenuColor" xml:space="preserve">
+    <value>Menu color</value>
+  </data>
+  <data name="Ui_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Ui_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Ui_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Ui_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Ui_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Ui_NewClient" xml:space="preserve">
+    <value>New Client</value>
+  </data>
+  <data name="Ui_NewColor" xml:space="preserve">
+    <value>New Color</value>
+  </data>
+  <data name="Ui_NewProduct" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="Ui_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Ui_NewSupplier" xml:space="preserve">
+    <value>New Supplier</value>
+  </data>
+  <data name="Ui_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
 </root>

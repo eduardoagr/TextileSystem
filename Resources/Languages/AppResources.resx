@@ -211,7 +211,7 @@
     <value>Consulta</value>
   </data>
   <data name="Section_Purchases" xml:space="preserve">
-    <value>Purchases</value>
+    <value>Compras</value>
   </data>
   <data name="Menu_Settings" xml:space="preserve">
     <value>Configuración</value>
@@ -230,5 +230,44 @@
   </data>
   <data name="Settings_es" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Ui_language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Ui_MenuColor" xml:space="preserve">
+    <value>Color del menu</value>
+  </data>
+  <data name="Ui_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Ui_Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="Ui_Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Ui_Notes" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="Ui_Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Ui_NewClient" xml:space="preserve">
+    <value>Nuevo Cliente</value>
+  </data>
+  <data name="Ui_NewColor" xml:space="preserve">
+    <value>Nuevo color</value>
+  </data>
+  <data name="Ui_NewProduct" xml:space="preserve">
+    <value>Nuevo producto</value>
+  </data>
+  <data name="Ui_Product" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="Ui_NewSupplier" xml:space="preserve">
+    <value>Nuevo proveedor</value>
+  </data>
+  <data name="Ui_Price" xml:space="preserve">
+    <value>Precio</value>
   </data>
 </root>
