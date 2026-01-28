@@ -270,4 +270,10 @@
   <data name="Ui_Price" xml:space="preserve">
     <value>Price</value>
   </data>
+  <data name="Ui_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Ui_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

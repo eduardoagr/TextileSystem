@@ -90,8 +90,8 @@
                             Grid.Row="4"
                             HorizontalOptions="End"
                             Spacing="10">
-                            <app:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="Borrar" />
-                            <app:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="Guardar" />
+                            <app:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="{loc:Translate Ui_Clear}" />
+                            <app:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="{loc:Translate Ui_Save}" />s
                         </HorizontalStackLayout>
                     </Grid>
                 </DataTemplate>

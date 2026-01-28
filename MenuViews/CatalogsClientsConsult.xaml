@@ -94,8 +94,9 @@
                             HorizontalOptions="End"
                             Spacing="10">
 
-                            <app:CustomButton Command="{Binding ResetTexBoxCommand}" Text="borrar" />
-                            <app:CustomButton Command="{Binding SaveToDatabaseCommand}" Text="Guardar" />
+                            <app:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="{loc:Translate Ui_Clear}" />
+                            <app:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="{loc:Translate Ui_Save}" />
+
 
                         </HorizontalStackLayout>
                     </Grid>
