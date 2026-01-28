@@ -168,12 +168,6 @@
   <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
     <value>Firmar consultar</value>
   </data>
-  <data name="Menu_Settings" xml:space="preserve">
-    <value>Configuración</value>
-  </data>
-  <data name="Section_Purchases" xml:space="preserve">
-    <value>Purchases</value>
-  </data>
   <data name="Section_Sales" xml:space="preserve">
     <value>Ventas</value>
   </data>
@@ -215,5 +209,26 @@
   </data>
   <data name="Tile_TransferQuery" xml:space="preserve">
     <value>Consulta</value>
+  </data>
+  <data name="Section_Purchases" xml:space="preserve">
+    <value>Purchases</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Ui_Username" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Ui_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Ui_Login" xml:space="preserve">
+    <value>iniciar sesión</value>
+  </data>
+  <data name="Settings_en" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
+  <data name="Settings_es" xml:space="preserve">
+    <value>Español</value>
   </data>
 </root>

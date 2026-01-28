@@ -1,58 +1,43 @@
 ﻿namespace TextileSystem.ViewModels;
 
 
-public partial class MainPageViewModel : ObservableObject
-{
+public partial class MainPageViewModel : ObservableObject {
 
     private readonly ILocalizationResourceManager _loc;
 
     [ObservableProperty]
-    public partial bool IsConfigurationsOpen
-    {
-        get; set;
-    }
+    public partial bool IsConfigurationsOpen { get; set; }
 
     [ObservableProperty]
-    public partial Color TileColor
-    {
-        get; set;
-    }
+    public partial Color TileColor { get; set; }
 
     [ObservableProperty]
-    public partial string SelectedLanguage
-    {
-        get; set;
-    }
+    public partial LanguageItem SelectedLanguageItem { get; set; }
 
-    public ObservableCollection<MenuSection> Sections
-    {
-        get; set;
-    }
+    public ObservableCollection<MenuSection> Sections { get; }
 
-    public ObservableCollection<string> Languages
-    {
-        get; set;
-    }
+    [ObservableProperty]
+    public partial ObservableCollection<LanguageItem> Languages { get; set; }
 
 
-    public MainPageViewModel(ILocalizationResourceManager localizationResource)
-    {
+
+
+    public MainPageViewModel(ILocalizationResourceManager localizationResource) {
+
         _loc = localizationResource;
         Sections = new ObservableCollection<MenuSection>(MenuFactory.CreateMenu(_loc));
-        Languages = LanguageServices.GetSupportedLanguages();
+        Languages = LanguageServices.GetSupportedLanguages(_loc);
 
-        SelectedLanguage = AppSettings.GetLanguage();
+
+        SelectedLanguageItem = Languages.FirstOrDefault(l => l.Code == AppSettings.GetLanguage()) ?? Languages.First();
         TileColor = AppSettings.GetTileColor();
 
     }
 
     [RelayCommand]
-    private void ExecuteTile(MenuTile tile)
-    {
-        if (tile is not null)
-        {
-            switch (tile.Action)
-            {
+    private void ExecuteTile(MenuTile tile) {
+        if(tile is not null) {
+            switch(tile.Action) {
 
                 // -----------------------------
                 // Captura & Consulta
@@ -144,34 +129,38 @@ public partial class MainPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void OnColorChanged(Color newColor)
-    {
+    public void OnColorChanged(Color newColor) {
         TileColor = newColor;
         AppSettings.SetTileColor(newColor);
 
     }
 
     [RelayCommand]
-    void OpenConfigurations()
-    {
+    void OpenConfigurations() {
         IsConfigurationsOpen = true;
     }
 
-    partial void OnSelectedLanguageChanged(string value)
-    {
-        AppSettings.SetLanguage(value);
+    partial void OnSelectedLanguageItemChanged(LanguageItem value) {
 
-        var culture = value switch
-        {
-            "English" => new CultureInfo("en"),
-            "Spanish" => new CultureInfo("es"),
-            _ => new CultureInfo("es")
-        };
+        if(value == null) return;
 
-        _loc.CurrentCulture = culture;
+        if(_loc.CurrentCulture.Name == value.Code) return;
+
+        // Save language code
+        AppSettings.SetLanguage(value.Code);
+
+        // Change culture
+        _loc.CurrentCulture = new CultureInfo(value.Code);
 
         Sections.Clear();
-        foreach (var section in MenuFactory.CreateMenu(_loc))
+        foreach(var section in MenuFactory.CreateMenu(_loc))
             Sections.Add(section);
+
+        var snapshot = Languages.ToList();
+
+        foreach(var lang in snapshot)
+            lang.Display = _loc[$"Settings_{lang.Code}"];
+        Languages = new ObservableCollection<LanguageItem>(snapshot);
+
     }
 }

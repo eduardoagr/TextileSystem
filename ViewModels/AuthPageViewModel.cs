@@ -1,6 +1,6 @@
 ﻿namespace TextileSystem.ViewModels;
 
-public partial class AuthPageViewModel(IWindowService windowService, ShellService shellService) : ObservableObject {
+public partial class AuthPageViewModel(IWindowService windowService, IShellService shellService) : ObservableObject {
 
     [ObservableProperty]
     public partial bool isBusy { get; set; }

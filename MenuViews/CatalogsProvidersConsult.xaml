@@ -3,12 +3,9 @@
     x:Class="TextileSystem.MenuViews.CatalogsProvidersConsult"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:TextileSystem.Controls"
-    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
-    xmlns:input="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-    xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
-    xmlns:vm="clr-namespace:TextileSystem.MenuViewModels"
-    x:DataType="vm:CatalogsProvidersConsultViewModel">
+    xmlns:app="http://schemas.textilesystem.com/maui"
+    xmlns:sf="http://schemas.syncfusion.com/maui"
+    x:DataType="app:CatalogsProvidersConsultViewModel">
 
     <Grid
         Padding="10"
@@ -16,8 +13,9 @@
         RowDefinitions="46,*"
         RowSpacing="10">
 
-        <editors:SfComboBox />
-        <controls:CustomButton
+        <sf:SfComboBox />
+
+        <app:CustomButton
             x:Name="PopupAnchor"
             Grid.Column="1"
             Command="{x:Binding CreateUserProviderCommand}"
@@ -34,11 +32,11 @@
                         <Label
                             Grid.Column="1"
                             FontAttributes="Bold"
-                            Text="Direcccion" />
+                            Text="Dirección" />
                         <Label
                             Grid.Column="2"
                             FontAttributes="Bold"
-                            Text="telefono" />
+                            Text="Teléfono" />
                         <Label
                             Grid.Column="3"
                             FontAttributes="Bold"
@@ -52,7 +50,7 @@
             </CollectionView>
         </Border>
 
-        <sfPopup:SfPopup
+        <sf:SfPopup
             AnimationMode="Zoom"
             AutoSizeMode="Height"
             IsOpen="{x:Binding IsCreateProviderDialogOpen}"
@@ -61,34 +59,41 @@
             ShowHeader="False"
             StaysOpen="True"
             WidthRequest="400">
-            <sfPopup:SfPopup.PopupStyle>
-                <sfPopup:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
-            </sfPopup:SfPopup.PopupStyle>
-            <sfPopup:SfPopup.ContentTemplate>
+
+            <sf:SfPopup.PopupStyle>
+                <sf:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </sf:SfPopup.PopupStyle>
+
+            <sf:SfPopup.ContentTemplate>
                 <DataTemplate>
                     <Grid Padding="10" RowDefinitions="80,200,80,200,*">
-                        <input:SfTextInputLayout Hint="Nombre">
+                        <!--  Input Fields  -->
+                        <sf:SfTextInputLayout Hint="Nombre">
                             <Entry />
-                        </input:SfTextInputLayout>
-                        <input:SfTextInputLayout Grid.Row="1" Hint="Dirrecion">
+                        </sf:SfTextInputLayout>
+
+                        <sf:SfTextInputLayout Grid.Row="1" Hint="Dirección">
                             <Editor />
-                        </input:SfTextInputLayout>
-                        <input:SfTextInputLayout Grid.Row="2" Hint="Telefonos">
+                        </sf:SfTextInputLayout>
+
+                        <sf:SfTextInputLayout Grid.Row="2" Hint="Teléfonos">
                             <Entry />
-                        </input:SfTextInputLayout>
-                        <input:SfTextInputLayout Grid.Row="3" Hint="Observaciones">
-                            <Entry IsPassword="True" />
-                        </input:SfTextInputLayout>
+                        </sf:SfTextInputLayout>
+
+                        <sf:SfTextInputLayout Grid.Row="3" Hint="Observaciones">
+                            <Entry />
+                        </sf:SfTextInputLayout>
+
                         <HorizontalStackLayout
                             Grid.Row="4"
                             HorizontalOptions="End"
                             Spacing="10">
-                            <controls:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="borrar" />
-                            <controls:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="Guardar" />
+                            <app:CustomButton Command="{x:Binding ResetTexBoxCommand}" Text="Borrar" />
+                            <app:CustomButton Command="{x:Binding SaveToDatabaseCommand}" Text="Guardar" />
                         </HorizontalStackLayout>
                     </Grid>
                 </DataTemplate>
-            </sfPopup:SfPopup.ContentTemplate>
-        </sfPopup:SfPopup>
+            </sf:SfPopup.ContentTemplate>
+        </sf:SfPopup>
     </Grid>
 </ContentPage>
