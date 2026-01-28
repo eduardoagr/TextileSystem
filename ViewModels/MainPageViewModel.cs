@@ -142,7 +142,7 @@ public partial class MainPageViewModel : ObservableObject {
 
     partial void OnSelectedLanguageItemChanged(LanguageItem value) {
 
-        if(value == null) return;
+        if(value is null) return;
 
         if(_loc.CurrentCulture.Name == value.Code) return;
 
