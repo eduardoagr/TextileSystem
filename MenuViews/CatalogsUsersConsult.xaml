@@ -14,7 +14,7 @@
         RowDefinitions="46,*"
         RowSpacing="10">
 
-        <sf:SfComboBox WidthRequest="400" />
+        <sf:SfComboBox />
 
         <app:CustomButton
             x:Name="PopupAnchor"

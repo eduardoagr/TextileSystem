@@ -20,10 +20,10 @@
     "http://schemas.textilesystem.com/maui",
     "app")]
 
-
 // =======================
 // SYNCFUSION
 // =======================
+
 [assembly: XmlnsDefinition(
     "http://schemas.syncfusion.com/maui",
     "Syncfusion.Maui.Core")]
@@ -35,6 +35,10 @@
 [assembly: XmlnsDefinition(
     "http://schemas.syncfusion.com/maui",
     "Syncfusion.Maui.Popup")]
+
+[assembly: XmlnsDefinition(
+    "http://schemas.syncfusion.com/maui",
+    "Syncfusion.Maui.TabView")]
 
 [assembly: XmlnsPrefix(
     "http://schemas.syncfusion.com/maui",
