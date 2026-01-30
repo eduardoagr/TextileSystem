@@ -79,6 +79,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\MenuTileView.xaml.cs">
+	    <DependentUpon>MenuTileView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <EmbeddedResource Update="Resources\Languages\AppResources.resx">
 	    <Generator></Generator>
 	  </EmbeddedResource>
@@ -88,7 +94,7 @@
 		<MauiXaml Update="Controls\BusyButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Controls\MenuTile.xaml">
+	  <MauiXaml Update="Controls\MenuTileView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MenuViews\CatalogsClientsConsult.xaml">

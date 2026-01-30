@@ -61,13 +61,13 @@
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate x:DataType="models:MenuTile">
 
-                                                    <controls:MenuTile Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}">
+                                                    <controls:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}">
 
-                                                        <controls:MenuTile.GestureRecognizers>
+                                                        <controls:MenuTileView.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}" CommandParameter="{Binding}" />
-                                                        </controls:MenuTile.GestureRecognizers>
+                                                        </controls:MenuTileView.GestureRecognizers>
 
-                                                    </controls:MenuTile>
+                                                    </controls:MenuTileView>
 
                                                 </DataTemplate>
                                             </BindableLayout.ItemTemplate>
