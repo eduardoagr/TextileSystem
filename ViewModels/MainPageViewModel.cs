@@ -12,12 +12,12 @@ public partial class MainPageViewModel : ObservableObject {
     public partial Color TileColor { get; set; }
 
     [ObservableProperty]
-    public partial LanguageItem SelectedLanguageItem { get; set; }
+    public partial UISettingItems SelectedLanguageItem { get; set; }
 
     public ObservableCollection<MenuSection> Sections { get; }
 
     [ObservableProperty]
-    public partial ObservableCollection<LanguageItem> Languages { get; set; }
+    public partial ObservableCollection<UISettingItems> Languages { get; set; }
 
 
 
@@ -26,7 +26,7 @@ public partial class MainPageViewModel : ObservableObject {
 
         _loc = localizationResource;
         Sections = new ObservableCollection<MenuSection>(MenuFactory.CreateMenu(_loc));
-        Languages = LanguageServices.GetSupportedLanguages(_loc);
+        Languages = UISettingItemsServices.GetUISettingItems(_loc);
 
 
         SelectedLanguageItem = Languages.FirstOrDefault(l => l.Code == AppSettings.GetLanguage()) ?? Languages.First();
@@ -140,7 +140,7 @@ public partial class MainPageViewModel : ObservableObject {
         IsConfigurationsOpen = true;
     }
 
-    partial void OnSelectedLanguageItemChanged(LanguageItem value) {
+    partial void OnSelectedLanguageItemChanged(UISettingItems value) {
 
         if(value is null) return;
 
@@ -158,10 +158,9 @@ public partial class MainPageViewModel : ObservableObject {
             Sections.Add(section);
 
         var snapshot = Languages.ToList();
-
         foreach(var lang in snapshot)
             lang.Display = _loc[$"Settings_{lang.Code}"];
-        Languages = new ObservableCollection<LanguageItem>(snapshot);
+        Languages = new ObservableCollection<UISettingItems>(snapshot);
 
     }
 }

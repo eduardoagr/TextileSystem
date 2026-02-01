@@ -1,297 +1,204 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
 
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="Menu_Capture" xml:space="preserve">
+	<!-- MENUS -->
+	<data name="Menu_Capture" xml:space="preserve">
     <value>录入与查询</value>
   </data>
-  <data name="Menu_Catalogs" xml:space="preserve">
+	<data name="Menu_Catalogs" xml:space="preserve">
     <value>目录</value>
   </data>
-  <data name="Menu_Catalogs_Main" xml:space="preserve">
+	<data name="Menu_Catalogs_Main" xml:space="preserve">
     <value>主菜单</value>
   </data>
-  <data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
+	<data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
     <value>客户</value>
   </data>
-  <data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
+	<data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
     <value>颜色</value>
   </data>
-  <data name="Menu_Catalogs_Main_Products" xml:space="preserve">
+	<data name="Menu_Catalogs_Main_Products" xml:space="preserve">
     <value>产品</value>
   </data>
-  <data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
+	<data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
     <value>供应商</value>
   </data>
-  <data name="Menu_Catalogs_Main_Users" xml:space="preserve">
+	<data name="Menu_Catalogs_Main_Users" xml:space="preserve">
     <value>用户</value>
   </data>
-  <data name="Menu_DataAnalysis" xml:space="preserve">
+
+	<data name="Menu_DataAnalysis" xml:space="preserve">
     <value>数据分析</value>
   </data>
-  <data name="Menu_DataAnalysis_Main" xml:space="preserve">
+	<data name="Menu_DataAnalysis_Main" xml:space="preserve">
     <value>报表</value>
   </data>
-  <data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
+	<data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
     <value>调整</value>
   </data>
-  <data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
+	<data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
     <value>变动</value>
   </data>
-  <data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
+	<data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
     <value>负库存</value>
   </data>
-  <data name="Menu_PortalMovements" xml:space="preserve">
-    <value>门户操作</value>
+
+	<data name="Menu_PortalMovements" xml:space="preserve">
+    <value>门户交易</value>
   </data>
-  <data name="Menu_PortalMovements_Main" xml:space="preserve">
-    <value>签署操作</value>
+	<data name="Menu_PortalMovements_Main" xml:space="preserve">
+    <value>授权交易</value>
   </data>
-  <data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
+	<data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
     <value>签署</value>
   </data>
-  <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
+	<data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
     <value>签署查询</value>
   </data>
-  <data name="Section_Purchases" xml:space="preserve">
-    <value>采购</value>
-  </data>
-  <data name="Section_Sales" xml:space="preserve">
-    <value>销售</value>
-  </data>
-  <data name="Section_SalesQuery" xml:space="preserve">
-    <value>销售查询</value>
-  </data>
-  <data name="Section_StockQuery" xml:space="preserve">
-    <value>库存查询</value>
-  </data>
-  <data name="Section_Transfers" xml:space="preserve">
-    <value>一般调拨</value>
-  </data>
-  <data name="Tile_General" xml:space="preserve">
-    <value>常规</value>
-  </data>
-  <data name="Tile_Historic" xml:space="preserve">
-    <value>历史</value>
-  </data>
-  <data name="Tile_PurchaseCapture" xml:space="preserve">
-    <value>采购</value>
-  </data>
-  <data name="Tile_PurchaseQuery" xml:space="preserve">
-    <value>查询</value>
-  </data>
-  <data name="Tile_SalesCapture" xml:space="preserve">
-    <value>录入</value>
-  </data>
-  <data name="Tile_SalesQuery" xml:space="preserve">
-    <value>查询</value>
-  </data>
-  <data name="Tile_StocksGeneral" xml:space="preserve">
-    <value>总览</value>
-  </data>
-  <data name="Tile_StocksWarehouses" xml:space="preserve">
-    <value>仓库</value>
-  </data>
-  <data name="Tile_TransferCapture" xml:space="preserve">
-    <value>录入</value>
-  </data>
-  <data name="Tile_TransferQuery" xml:space="preserve">
-    <value>查询</value>
-  </data>
-  <data name="Menu_Settings" xml:space="preserve">
+
+	<data name="Menu_Settings" xml:space="preserve">
     <value>设置</value>
   </data>
-  <data name="Ui_Login" xml:space="preserve">
+
+	<!-- SECTIONS -->
+	<data name="Section_Purchases" xml:space="preserve">
+    <value>采购</value>
+  </data>
+	<data name="Section_Sales" xml:space="preserve">
+    <value>销售</value>
+  </data>
+	<data name="Section_SalesQuery" xml:space="preserve">
+    <value>销售查询</value>
+  </data>
+	<data name="Section_StockQuery" xml:space="preserve">
+    <value>库存查询</value>
+  </data>
+	<data name="Section_Transfers" xml:space="preserve">
+    <value>一般调拨</value>
+  </data>
+
+	<!-- TILES -->
+	<data name="Tile_General" xml:space="preserve">
+    <value>常规</value>
+  </data>
+	<data name="Tile_Historic" xml:space="preserve">
+    <value>历史</value>
+  </data>
+	<data name="Tile_PurchaseCapture" xml:space="preserve">
+    <value>采购</value>
+  </data>
+	<data name="Tile_PurchaseQuery" xml:space="preserve">
+    <value>查询</value>
+  </data>
+	<data name="Tile_SalesCapture" xml:space="preserve">
+    <value>录入</value>
+  </data>
+	<data name="Tile_SalesQuery" xml:space="preserve">
+    <value>查询</value>
+  </data>
+	<data name="Tile_StocksGeneral" xml:space="preserve">
+    <value>总览</value>
+  </data>
+	<data name="Tile_StocksWarehouses" xml:space="preserve">
+    <value>仓库</value>
+  </data>
+	<data name="Tile_TransferCapture" xml:space="preserve">
+    <value>录入</value>
+  </data>
+	<data name="Tile_TransferQuery" xml:space="preserve">
+    <value>查询</value>
+  </data>
+
+	<!-- UI -->
+	<data name="Ui_Login" xml:space="preserve">
     <value>登录</value>
   </data>
-  <data name="Ui_Username" xml:space="preserve">
+	<data name="Ui_Username" xml:space="preserve">
     <value>用户名</value>
   </data>
-  <data name="Ui_Password" xml:space="preserve">
+	<data name="Ui_Password" xml:space="preserve">
     <value>密码</value>
   </data>
-  <data name="Ui_language" xml:space="preserve">
+	<data name="Ui_language" xml:space="preserve">
     <value>语言</value>
   </data>
-  <data name="Ui_MenuColor" xml:space="preserve">
+	<data name="Ui_MenuColor" xml:space="preserve">
     <value>菜单颜色</value>
   </data>
-  <data name="Ui_Name" xml:space="preserve">
+	<data name="Ui_Name" xml:space="preserve">
     <value>姓名</value>
   </data>
-  <data name="Ui_Address" xml:space="preserve">
+	<data name="Ui_Address" xml:space="preserve">
     <value>地址</value>
   </data>
-  <data name="Ui_Phone" xml:space="preserve">
+	<data name="Ui_Phone" xml:space="preserve">
     <value>电话</value>
   </data>
-  <data name="Ui_Notes" xml:space="preserve">
+	<data name="Ui_Notes" xml:space="preserve">
     <value>备注</value>
   </data>
-  <data name="Ui_Status" xml:space="preserve">
+	<data name="Ui_Status" xml:space="preserve">
     <value>状态</value>
   </data>
-  <data name="Ui_NewClient" xml:space="preserve">
-    <value>新客户</value>
-  </data>
-  <data name="Ui_NewColor" xml:space="preserve">
-    <value>新颜色</value>
-  </data>
-  <data name="Ui_NewProduct" xml:space="preserve">
-    <value>新产品</value>
-  </data>
-  <data name="Ui_NewSupplier" xml:space="preserve">
-    <value>新供应商</value>
-  </data>
-  <data name="Ui_Product" xml:space="preserve">
-    <value>产品</value>
-  </data>
-  <data name="Ui_Price" xml:space="preserve">
-    <value>价格</value>
-  </data>
-  <data name="Ui_Clear" xml:space="preserve">
+	<data name="Ui_Clear" xml:space="preserve">
     <value>清空</value>
   </data>
-  <data name="Ui_Save" xml:space="preserve">
+	<data name="Ui_Save" xml:space="preserve">
     <value>保存</value>
   </data>
-  <data name="Settings_en" xml:space="preserve">
+
+	<!-- ENTITIES -->
+	<data name="Ui_NewClient" xml:space="preserve">
+    <value>新客户</value>
+  </data>
+	<data name="Ui_NewColor" xml:space="preserve">
+    <value>新颜色</value>
+  </data>
+	<data name="Ui_NewProduct" xml:space="preserve">
+    <value>新产品</value>
+  </data>
+	<data name="Ui_NewSupplier" xml:space="preserve">
+    <value>新供应商</value>
+  </data>
+	<data name="Ui_Product" xml:space="preserve">
+    <value>产品</value>
+  </data>
+	<data name="Ui_Price" xml:space="preserve">
+    <value>价格</value>
+  </data>
+
+	<!-- SCREENS -->
+	<data name="Screen_ClientsConsult" xml:space="preserve">
+    <value>客户查询</value>
+  </data>
+	<data name="Screen_SuppliersConsult" xml:space="preserve">
+    <value>供应商查询</value>
+  </data>
+	<data name="Screen_UsersConsult" xml:space="preserve">
+    <value>用户查询</value>
+  </data>
+	<data name="Screen_ProductsConsult" xml:space="preserve">
+    <value>产品查询</value>
+  </data>
+	<data name="Screen_ColorsConsult" xml:space="preserve">
+    <value>颜色查询</value>
+  </data>
+
+	<!-- SETTINGS -->
+	<data name="Settings_en" xml:space="preserve">
     <value>英语</value>
   </data>
-  <data name="Settings_es" xml:space="preserve">
+	<data name="Settings_es" xml:space="preserve">
     <value>西班牙语</value>
   </data>
-  <data name="Settings_zh" xml:space="preserve">
+	<data name="Settings_zh" xml:space="preserve">
     <value>中文</value>
   </data>
-  <data name="Screen_ClientsConsult" xml:space="preserve">
-    <value>查询客户</value>
-  </data>
-  <data name="Screen_SuppliersConsult" xml:space="preserve">
-    <value>查询供应商</value>
-  </data>
-  <data name="Screen_UsersConsult" xml:space="preserve">
-    <value>查询用户</value>
-  </data>
-  <data name="Screen_ProductsConsult" xml:space="preserve">
-    <value>查询产品</value>
-  </data>
-  <data name="Screen_ColorsConsult" xml:space="preserve">
-    <value>查询颜色</value>
-  </data>
+
 </root>
