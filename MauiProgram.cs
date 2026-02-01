@@ -1,19 +1,15 @@
 ﻿namespace TextileSystem;
 
-public static class MauiProgram
-{
-    public static MauiApp CreateMauiApp()
-    {
+public static class MauiProgram {
+    public static MauiApp CreateMauiApp() {
         SyncfusionLicenseProvider.RegisterLicense(Keys.SyncfusionLicenseKey);
         var builder = MauiApp.CreateBuilder();
-        builder.UseMauiApp<App>().ConfigureSyncfusionCore().ConfigureFonts(fonts =>
-        {
+        builder.UseMauiApp<App>().ConfigureSyncfusionCore().ConfigureFonts(fonts => {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             fonts.AddFont("MaterialIcons-Regular.ttf", "Mi");
 
-        }).UseMauiCommunityToolkit().UseLocalizationResourceManager(settings =>
-        {
+        }).UseMauiCommunityToolkit().UseLocalizationResourceManager(settings => {
             settings.AddResource(AppResources.ResourceManager);
             settings.RestoreLatestCulture(true);
         });
@@ -63,6 +59,14 @@ public static class MauiProgram
         // Dialog service
 
         builder.Services.AddTransient<ICustomDialogService, CustomDialogService>();
+
+        // Menu service
+
+        builder.Services.AddSingleton<IRibbonMenuBuilder, RibbonMenuBuilder>();
+
+        // UI services
+
+        builder.Services.AddSingleton<IUISettingItemsServices, UISettingItemsServices>();
 
         #endregion
 

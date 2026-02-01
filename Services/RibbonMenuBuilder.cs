@@ -1,13 +1,10 @@
 ﻿namespace TextileSystem.Services;
 
-public static class MenuFactory
-{
-    public static IList<MenuSection> CreateMenu(ILocalizationResourceManager loc)
-    {
+public class RibbonMenuBuilder : IRibbonMenuBuilder {
+    public IList<MenuSection> CreateMenu(ILocalizationResourceManager loc) {
         var menu = new List<MenuSection>();
 
-        var firstTab = new MenuSection
-        {
+        var firstTab = new MenuSection {
             Title = loc["Menu_Capture"],
             Groups =
             [
@@ -59,8 +56,7 @@ public static class MenuFactory
             ]
         };
 
-        var secondTab = new MenuSection
-        {
+        var secondTab = new MenuSection {
             Title = loc["Menu_Catalogs"],
             Groups =
             [
@@ -80,8 +76,7 @@ public static class MenuFactory
             ]
         };
 
-        var thirdTab = new MenuSection
-        {
+        var thirdTab = new MenuSection {
             Title = loc["Menu_PortalMovements"],
             Groups =
             [
@@ -97,8 +92,7 @@ public static class MenuFactory
             ]
         };
 
-        var fourthTab = new MenuSection
-        {
+        var fourthTab = new MenuSection {
             Title = loc["Menu_DataAnalysis"],
             Groups =
             [

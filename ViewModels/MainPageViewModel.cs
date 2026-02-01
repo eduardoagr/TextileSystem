@@ -3,6 +3,11 @@
 
 public partial class MainPageViewModel : ObservableObject {
 
+    private readonly IRibbonMenuBuilder _menuBuilder;
+
+    private readonly IUISettingItemsServices _uiSettingsService;
+
+
     private readonly ILocalizationResourceManager _loc;
 
     [ObservableProperty]
@@ -19,14 +24,14 @@ public partial class MainPageViewModel : ObservableObject {
     [ObservableProperty]
     public partial ObservableCollection<UISettingItems> Languages { get; set; }
 
+    public MainPageViewModel(ILocalizationResourceManager localizationResource, IRibbonMenuBuilder menuBuilder, IUISettingItemsServices uiSettingsService) {
 
-
-
-    public MainPageViewModel(ILocalizationResourceManager localizationResource) {
+        _uiSettingsService = uiSettingsService;
+        _menuBuilder = menuBuilder;
 
         _loc = localizationResource;
-        Sections = new ObservableCollection<MenuSection>(MenuFactory.CreateMenu(_loc));
-        Languages = UISettingItemsServices.GetUISettingItems(_loc);
+        Sections = new ObservableCollection<MenuSection>(_menuBuilder.CreateMenu(_loc));
+        Languages = _uiSettingsService.GetUISettingItems(_loc);
 
 
         SelectedLanguageItem = Languages.FirstOrDefault(l => l.Code == AppSettings.GetLanguage()) ?? Languages.First();
@@ -154,7 +159,7 @@ public partial class MainPageViewModel : ObservableObject {
         _loc.CurrentCulture = new CultureInfo(value.Code);
 
         Sections.Clear();
-        foreach(var section in MenuFactory.CreateMenu(_loc))
+        foreach(var section in _menuBuilder.CreateMenu(_loc))
             Sections.Add(section);
 
         var snapshot = Languages.ToList();
