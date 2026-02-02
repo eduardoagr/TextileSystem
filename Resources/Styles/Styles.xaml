@@ -2,7 +2,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core">
+    xmlns:sf="http://schemas.syncfusion.com/maui"
+    xmlns:test="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs">
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
@@ -434,16 +435,34 @@
 
     <!--  Custom styles for controls can be added here as well  -->
 
-    <Style TargetType="inputLayout:SfTextInputLayout">
+    <Style TargetType="sf:SfTextInputLayout">
         <Setter Property="ContainerType" Value="Outlined" />
         <Setter Property="InputViewPadding" Value="10,5,0,5" />
         <Setter Property="OutlineCornerRadius" Value="8" />
 
         <Setter Property="HintLabelStyle">
             <Setter.Value>
-                <inputLayout:LabelStyle TextColor="{x:AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" />
+                <sf:LabelStyle TextColor="{x:AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}" />
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="test:SfComboBox">
+        <Setter Property="BackgroundColor" Value="{x:AppThemeBinding Dark={x:StaticResource DarkMode}, Light={x:StaticResource White}}" />
+
+        <Setter Property="ClearButtonIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+
+        <Setter Property="DropDownBackground" Value="{x:AppThemeBinding Dark={x:StaticResource DarkMode}, Light={x:StaticResource White}}" />
+
+        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+
+        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+
+        <Setter Property="IsEditable" Value="True" />
+
+        <Setter Property="TextColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource Black}}" />
+
+        <Setter Property="TextHighlightMode" Value="FirstOccurrence" />
     </Style>
 
 </ResourceDictionary>

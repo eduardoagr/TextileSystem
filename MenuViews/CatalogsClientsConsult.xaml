@@ -14,10 +14,8 @@
         RowDefinitions="46,*"
         RowSpacing="10">
 
-        <!--  Syncfusion ComboBox  -->
-        <sf:SfComboBox />
-
-        <!--  Custom button from your app  -->
+        <sf:SfComboBox/>
+        
         <app:CustomButton
             x:Name="PopupAnchor"
             Grid.Column="1"
@@ -27,7 +25,6 @@
             Text="{loc:Translate Ui_NewClient}"
             VerticalOptions="Center" />
 
-        <!--  CollectionView with header  -->
         <Border Grid.Row="1" Grid.ColumnSpan="2">
             <CollectionView>
                 <CollectionView.Header>
@@ -54,7 +51,6 @@
             </CollectionView>
         </Border>
 
-        <!--  Syncfusion Popup  -->
         <sf:SfPopup
             AnimationMode="Zoom"
             AutoSizeMode="Height"

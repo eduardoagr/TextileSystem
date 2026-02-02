@@ -131,7 +131,8 @@
                                                                     Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}"
                                     ColorMode="Palette"
                                     HorizontalOptions="Start"
-                                    IsInline="True" />
+                                    IsInline="True"
+                                    SelectedColor="{x:Binding TileColor}" />
                             </VerticalStackLayout>
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8" />
