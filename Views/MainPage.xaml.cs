@@ -1,10 +1,8 @@
 namespace TextileSystem.Views;
 
-public partial class MainPage : ContentPage
-{
+public partial class MainPage : ContentPage {
 
-    public MainPage(MainPageViewModel mainPageViewModel)
-    {
+    public MainPage(MainPageViewModel mainPageViewModel) {
         InitializeComponent();
 
         BindingContext = mainPageViewModel;

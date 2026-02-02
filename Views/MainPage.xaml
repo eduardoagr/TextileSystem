@@ -3,19 +3,16 @@
     x:Class="TextileSystem.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:TextileSystem.Controls"
-    xmlns:helpers="clr-namespace:TextileSystem.Helpers"
+    xmlns:app="http://schemas.textilesystem.com/maui"
     xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
-    xmlns:models="clr-namespace:TextileSystem.Models"
-    xmlns:sfPopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
-    xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
-    xmlns:vm="clr-namespace:TextileSystem.ViewModels"
-    x:DataType="vm:MainPageViewModel">
+    xmlns:sf="http://schemas.syncfusion.com/maui"
+    x:DataType="app:MainPageViewModel">
 
     <Grid RowDefinitions="200,*">
 
-        <tabView:SfTabView
+        <sf:SfTabView
+            x:Name="MainTabView"
             IndicatorBackground="{x:Binding TileColor}"
             IndicatorStrokeThickness="1"
             ItemsSource="{x:Binding Sections}"
@@ -23,18 +20,18 @@
             TabWidthMode="SizeToContent">
 
             <!--  HEADER TEMPLATE  -->
-            <tabView:SfTabView.HeaderItemTemplate>
-                <DataTemplate x:DataType="models:MenuSection">
+            <sf:SfTabView.HeaderItemTemplate>
+                <DataTemplate x:DataType="app:MenuSection">
                     <Label
                         Padding="10"
                         FontAttributes="Bold"
                         Text="{x:Binding Title}" />
                 </DataTemplate>
-            </tabView:SfTabView.HeaderItemTemplate>
+            </sf:SfTabView.HeaderItemTemplate>
 
             <!--  CONTENT TEMPLATE  -->
-            <tabView:SfTabView.ContentItemTemplate>
-                <DataTemplate x:DataType="models:MenuSection">
+            <sf:SfTabView.ContentItemTemplate>
+                <DataTemplate x:DataType="app:MenuSection">
 
                     <CollectionView Margin="0,10,0,0" ItemsSource="{x:Binding Groups}">
 
@@ -43,7 +40,7 @@
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="models:MenuGroup">
+                            <DataTemplate x:DataType="app:MenuGroup">
 
                                 <Border Padding="5">
 
@@ -59,15 +56,15 @@
                                         <HorizontalStackLayout BindableLayout.ItemsSource="{Binding Tiles}" HorizontalOptions="Center">
 
                                             <BindableLayout.ItemTemplate>
-                                                <DataTemplate x:DataType="models:MenuTile">
+                                                <DataTemplate x:DataType="app:MenuTile">
 
-                                                    <controls:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}">
+                                                    <app:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={RelativeSource AncestorType={x:Type app:MainPageViewModel}}}">
 
-                                                        <controls:MenuTileView.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}" CommandParameter="{Binding}" />
-                                                        </controls:MenuTileView.GestureRecognizers>
+                                                        <app:MenuTileView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{Binding}" />
+                                                        </app:MenuTileView.GestureRecognizers>
 
-                                                    </controls:MenuTileView>
+                                                    </app:MenuTileView>
 
                                                 </DataTemplate>
                                             </BindableLayout.ItemTemplate>
@@ -88,32 +85,33 @@
                     </CollectionView>
 
                 </DataTemplate>
-            </tabView:SfTabView.ContentItemTemplate>
+            </sf:SfTabView.ContentItemTemplate>
 
-        </tabView:SfTabView>
+        </sf:SfTabView>
 
         <Label
             Margin="0,10,20,0"
             FontFamily="Mi"
             FontSize="Medium"
             HorizontalOptions="End"
-            Text="{x:Static helpers:MaterialIcon.Settings}"
+            Text="{x:Static app:MaterialIcon.Settings}"
             VerticalOptions="Start">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Command="{x:Binding OpenConfigurationsCommand}" />
             </Label.GestureRecognizers>
         </Label>
 
-        <sfPopup:SfPopup
+        <sf:SfPopup
+            x:Name="ConfigurationsPopup"
             AnimationMode="Zoom"
             HeightRequest="600"
             IsOpen="{x:Binding IsConfigurationsOpen}"
             ShowHeader="False"
             WidthRequest="360">
-            <sfPopup:SfPopup.PopupStyle>
-                <sfPopup:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
-            </sfPopup:SfPopup.PopupStyle>
-            <sfPopup:SfPopup.ContentTemplate>
+            <sf:SfPopup.PopupStyle>
+                <sf:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </sf:SfPopup.PopupStyle>
+            <sf:SfPopup.ContentTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="10" Spacing="10">
                         <Border Padding="10">
@@ -130,7 +128,7 @@
                                 <Label Text="{loc:Translate Ui_MenuColor}" />
                                 <inputs:SfColorPicker
                                     ColorChangedCommand="{x:Binding ColorChangedCommand,
-                                                                    Source={x:RelativeSource AncestorType={x:Type vm:MainPageViewModel}}}"
+                                                                    Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}"
                                     ColorMode="Palette"
                                     HorizontalOptions="Start"
                                     IsInline="True" />
@@ -141,8 +139,8 @@
                         </Border>
                     </VerticalStackLayout>
                 </DataTemplate>
-            </sfPopup:SfPopup.ContentTemplate>
-        </sfPopup:SfPopup>
+            </sf:SfPopup.ContentTemplate>
+        </sf:SfPopup>
 
 
 

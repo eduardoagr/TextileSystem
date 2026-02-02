@@ -1,6 +1,6 @@
 ﻿namespace TextileSystem.ViewModels.Base;
 
-public abstract partial class CatalogConsultViewModel<TModel>(ICustomDialogService dialogService) : ObservableObject
+public abstract partial class ViewModelBase<TModel>(ICustomDialogService dialogService) : ObservableObject
     where TModel : class, new() {
 
     [ObservableProperty]

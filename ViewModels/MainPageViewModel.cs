@@ -91,7 +91,7 @@ public partial class MainPageViewModel : ObservableObject {
                     break;
 
                 case MenuTile.MenuAction.UsuariosConsulta:
-                    WindowFactory.CreateCentered<CatalogsUsersConsult>(_loc["Screen_UsersConsult"], 600, 600);
+                    WindowFactory.CreateCentered<CatalogsUsersConsult>(_loc["Screen_UsersConsult"], 1000, 600);
                     break;
 
                 case MenuTile.MenuAction.ProductosConsulta:

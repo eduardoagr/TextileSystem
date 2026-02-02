@@ -28,7 +28,7 @@
         <Border Grid.Row="1" Grid.ColumnSpan="2">
             <CollectionView>
                 <CollectionView.Header>
-                    <Grid ColumnDefinitions="300,*,*,60">
+                    <Grid ColumnDefinitions="300,300,300,60">
                         <Label FontAttributes="Bold" Text="{loc:Translate Ui_Name}" />
                         <Label
                             Grid.Column="1"
