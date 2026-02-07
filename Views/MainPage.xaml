@@ -9,7 +9,7 @@
     xmlns:sf="http://schemas.syncfusion.com/maui"
     x:DataType="app:MainPageViewModel">
 
-    <Grid RowDefinitions="200,*">
+    <Grid RowDefinitions="220,*">
 
         <sf:SfTabView
             x:Name="MainTabView"
@@ -131,8 +131,7 @@
                                                                     Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}"
                                     ColorMode="Palette"
                                     HorizontalOptions="Start"
-                                    IsInline="True"
-                                    SelectedColor="{x:Binding TileColor}" />
+                                    IsInline="True" />
                             </VerticalStackLayout>
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8" />

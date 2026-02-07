@@ -448,15 +448,15 @@
     </Style>
 
     <Style TargetType="test:SfComboBox">
-        <Setter Property="BackgroundColor" Value="{x:AppThemeBinding Dark={x:StaticResource DarkMode}, Light={x:StaticResource White}}" />
+        <Setter Property="BackgroundColor" Value="{x:AppThemeBinding Dark={x:StaticResource DarkModePickerColor}, Light={x:StaticResource White}}" />
 
-        <Setter Property="ClearButtonIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+        <Setter Property="ClearButtonIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkModePickerColor}}" />
 
-        <Setter Property="DropDownBackground" Value="{x:AppThemeBinding Dark={x:StaticResource DarkMode}, Light={x:StaticResource White}}" />
+        <Setter Property="DropDownBackground" Value="{x:AppThemeBinding Dark={x:StaticResource DarkModePickerColor}, Light={x:StaticResource White}}" />
 
-        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkModePickerColor}}" />
 
-        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkMode}}" />
+        <Setter Property="DropDownIconColor" Value="{x:AppThemeBinding Dark={x:StaticResource White}, Light={x:StaticResource DarkModePickerColor}}" />
 
         <Setter Property="IsEditable" Value="True" />
 

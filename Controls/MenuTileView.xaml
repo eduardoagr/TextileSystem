@@ -5,30 +5,47 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Name="Root">
 
-    <VerticalStackLayout
-        HorizontalOptions="Center"
-        Spacing="10"
-        VerticalOptions="Center">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-        <!--  BORDER WITH IMAGE ONLY  -->
-        <Border Margin="8" BackgroundColor="{Binding TileColor, Source={x:Reference Root}}">
-            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <!--  CARTOON TILE  -->
+        <Grid>
 
-                <Image
-                    HeightRequest="48"
-                    Source="{Binding Tile.Icon, Source={x:Reference Root}}"
-                    WidthRequest="48" />
+            <!--  HARD SHADOW (FAKE SHADOW LAYER)  -->
+            <Border
+                Margin="12"
+                BackgroundColor="#2A2A2A"
+                StrokeShape="RoundRectangle 14"
+                TranslationX="4"
+                TranslationY="4" />
 
-            </VerticalStackLayout>
-        </Border>
+            <!--  MAIN TILE  -->
+            <Border
+                Margin="12"
+                BackgroundColor="{Binding TileColor, Source={x:Reference Root}}"
+                Stroke="White"
+                StrokeShape="RoundRectangle 14"
+                StrokeThickness="4">
 
-        <!--  LABEL OUTSIDE THE BORDER  -->
+                <VerticalStackLayout
+                    Padding="14"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Image
+                        HeightRequest="32"
+                        Source="{Binding Tile.Icon, Source={x:Reference Root}}"
+                        WidthRequest="32" />
+                </VerticalStackLayout>
+            </Border>
+
+        </Grid>
+
+        <!--  LABEL  -->
         <Label
-            Margin="0,-14,0,0"
             FontAttributes="Bold"
-            FontSize="10"
+            FontSize="14"
             HorizontalTextAlignment="Center"
-            LineBreakMode="CharacterWrap"
+            MaxLines="2"
             Text="{Binding Tile.Title, Source={x:Reference Root}}" />
 
     </VerticalStackLayout>
