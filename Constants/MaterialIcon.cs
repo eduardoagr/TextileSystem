@@ -1,7 +1,6 @@
 ﻿namespace TextileSystem.Helpers;
 
-public static class MaterialIcon
-{
+public static class MaterialIcon {
     public const string Icon1 = "\u0030";
     public const string Icon2 = "\u0031";
     public const string Icon3 = "\u0032";

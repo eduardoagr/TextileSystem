@@ -6,7 +6,16 @@
     xmlns:app="http://schemas.textilesystem.com/maui"
     xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
     xmlns:sf="http://schemas.syncfusion.com/maui"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     x:DataType="app:CatalogsClientsConsultViewModel">
+
+    <ContentPage.Resources>
+        <x:Array x:Key="DummyItems" Type="{x:Type sys:Int32}">
+            <sys:Int32>1</sys:Int32>
+            <sys:Int32>2</sys:Int32>
+            <sys:Int32>3</sys:Int32>
+        </x:Array>
+    </ContentPage.Resources>
 
     <Grid
         Padding="10"
@@ -14,8 +23,8 @@
         RowDefinitions="46,*"
         RowSpacing="10">
 
-        <sf:SfComboBox/>
-        
+        <sf:SfComboBox />
+
         <app:CustomButton
             x:Name="PopupAnchor"
             Grid.Column="1"
@@ -26,28 +35,82 @@
             VerticalOptions="Center" />
 
         <Border Grid.Row="1" Grid.ColumnSpan="2">
-            <CollectionView>
+            <CollectionView ItemsSource="{StaticResource DummyItems}">
                 <CollectionView.Header>
                     <Grid ColumnDefinitions="300,300,300,300,60">
-                        <Label FontAttributes="Bold" Text="{loc:Translate Ui_Name}" />
-                        <Label
+                        <Border Stroke="LightGray" StrokeThickness="1">
+                            <Label FontAttributes="Bold" Text="{loc:Translate Ui_Name}" />
+                        </Border>
+
+                        <Border
                             Grid.Column="1"
-                            FontAttributes="Bold"
-                            Text="{loc:Translate Ui_Address}" />
-                        <Label
+                            Stroke="LightGray"
+                            StrokeThickness="1">
+                            <Label FontAttributes="Bold" Text="{loc:Translate Ui_Address}" />
+                        </Border>
+
+                        <Border
                             Grid.Column="2"
-                            FontAttributes="Bold"
-                            Text="{loc:Translate Ui_Phone}" />
-                        <Label
+                            Stroke="LightGray"
+                            StrokeThickness="1">
+                            <Label FontAttributes="Bold" Text="{loc:Translate Ui_Phone}" />
+                        </Border>
+
+                        <Border
                             Grid.Column="3"
-                            FontAttributes="Bold"
-                            Text="{loc:Translate Ui_Notes}" />
-                        <Label
+                            Stroke="LightGray"
+                            StrokeThickness="1">
+                            <Label FontAttributes="Bold" Text="{loc:Translate Ui_Notes}" />
+                        </Border>
+
+                        <Border
                             Grid.Column="4"
-                            FontAttributes="Bold"
-                            Text="{loc:Translate Ui_Status}" />
+                            Stroke="LightGray"
+                            StrokeThickness="1">
+                            <Label FontAttributes="Bold" Text="{loc:Translate Ui_Status}" />
+                        </Border>
                     </Grid>
+
                 </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="300,300,300,300,60">
+                            <Border Stroke="LightGray" StrokeThickness="1">
+                                <Label Text="1" />
+                            </Border>
+
+                            <Border
+                                Grid.Column="1"
+                                Stroke="LightGray"
+                                StrokeThickness="1">
+                                <Label Text="2" />
+                            </Border>
+
+                            <Border
+                                Grid.Column="2"
+                                Stroke="LightGray"
+                                StrokeThickness="1">
+                                <Label Text="3" />
+                            </Border>
+
+                            <Border
+                                Grid.Column="3"
+                                Stroke="LightGray"
+                                StrokeThickness="1">
+                                <Label Text="4" />
+                            </Border>
+
+                            <Border
+                                Grid.Column="4"
+                                Stroke="LightGray"
+                                StrokeThickness="1">
+                                <Label Text="5" />
+                            </Border>
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
         </Border>
 

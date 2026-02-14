@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="TextileSystem.Controls.AppBarButton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Root">
+
+    <VerticalStackLayout>
+        <Label
+            HorizontalTextAlignment="Center"
+            Style="{x:StaticResource IconLabelStyle}"
+            Text="{x:Binding Icon,
+                             Source={x:Reference Root}}" />
+        <Label
+            FontSize="Small"
+            HorizontalTextAlignment="Center"
+            Text="{x:Binding Caption,
+                             Source={x:Reference Root}}" />
+        <VerticalStackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{x:Binding Command, Source={x:Reference Root}}" />
+        </VerticalStackLayout.GestureRecognizers>
+    </VerticalStackLayout>
+</ContentView>

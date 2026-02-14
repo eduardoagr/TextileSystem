@@ -3,29 +3,30 @@
     x:Class="TextileSystem.Controls.MenuTileView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Name="Root">
 
     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
-        <!--  CARTOON TILE  -->
-        <Grid>
+        <Grid ToolTipProperties.Text="{x:Binding Tile.helpText, Source={x:Reference Root}}">
+            <Grid.GestureRecognizers>
+                <PointerGestureRecognizer PointerEntered="PointerEntered" PointerExited="PointerExited" />
+            </Grid.GestureRecognizers>
 
-            <!--  HARD SHADOW (FAKE SHADOW LAYER)  -->
             <Border
                 Margin="12"
                 BackgroundColor="#2A2A2A"
-                StrokeShape="RoundRectangle 14"
+                StrokeShape="RoundRectangle 16"
                 TranslationX="4"
                 TranslationY="4" />
 
-            <!--  MAIN TILE  -->
             <Border
+                x:Name="FrontBorder"
                 Margin="12"
-                BackgroundColor="{Binding TileColor, Source={x:Reference Root}}"
-                Stroke="White"
+                BackgroundColor="{x:Binding TileColor,
+                                            Source={x:Reference Root}}"
                 StrokeShape="RoundRectangle 14"
                 StrokeThickness="4">
-
                 <VerticalStackLayout
                     Padding="14"
                     HorizontalOptions="Center"
@@ -33,10 +34,38 @@
 
                     <Image
                         HeightRequest="32"
-                        Source="{Binding Tile.Icon, Source={x:Reference Root}}"
+                        Source="{x:Binding Tile.Icon,
+                                           Source={x:Reference Root}}"
                         WidthRequest="32" />
                 </VerticalStackLayout>
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{Binding TileColor, Source={x:Reference Root}}" />
+                                <Setter Property="Scale" Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="ForestGreen" />
+                                <Setter Property="Scale" Value="1.1" />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
             </Border>
+
+            <Grid.Behaviors>
+                <toolkit:TouchBehavior
+                    HoveredAnimationDuration="140"
+                    HoveredAnimationEasing="CubicOut"
+                    HoveredScale="1.25" />
+            </Grid.Behaviors>
 
         </Grid>
 
@@ -46,7 +75,8 @@
             FontSize="14"
             HorizontalTextAlignment="Center"
             MaxLines="2"
-            Text="{Binding Tile.Title, Source={x:Reference Root}}" />
+            Text="{x:Binding Tile.Title,
+                             Source={x:Reference Root}}" />
 
     </VerticalStackLayout>
 

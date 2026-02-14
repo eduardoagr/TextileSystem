@@ -1,261 +1,300 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-				xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-
-
-
-	<!-- MENUS -->
-	<data name="Menu_Capture" xml:space="preserve">
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu_Capture" xml:space="preserve">
     <value>Captura y consulta</value>
   </data>
-	<data name="Menu_Catalogs" xml:space="preserve">
+  <data name="Menu_Catalogs" xml:space="preserve">
     <value>Catálogos</value>
   </data>
-	<data name="Menu_Catalogs_Main" xml:space="preserve">
+  <data name="Menu_Catalogs_Main" xml:space="preserve">
     <value>Principales</value>
   </data>
-	<data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
+  <data name="Menu_Catalogs_Main_Clients" xml:space="preserve">
     <value>Clientes</value>
   </data>
-	<data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
+  <data name="Menu_Catalogs_Main_Colors" xml:space="preserve">
     <value>Colores</value>
   </data>
-	<data name="Menu_Catalogs_Main_Products" xml:space="preserve">
+  <data name="Menu_Catalogs_Main_Products" xml:space="preserve">
     <value>Productos</value>
   </data>
-	<data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
+  <data name="Menu_Catalogs_Main_Suppliers" xml:space="preserve">
     <value>Proveedores</value>
   </data>
-	<data name="Menu_Catalogs_Main_Users" xml:space="preserve">
+  <data name="Menu_Catalogs_Main_Users" xml:space="preserve">
     <value>Usuarios</value>
   </data>
-
-	<data name="Menu_DataAnalysis" xml:space="preserve">
+  <data name="Menu_DataAnalysis" xml:space="preserve">
     <value>Análisis de datos</value>
   </data>
-	<data name="Menu_DataAnalysis_Main" xml:space="preserve">
+  <data name="Menu_DataAnalysis_Main" xml:space="preserve">
     <value>Informes</value>
   </data>
-	<data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
+  <data name="Menu_DataAnalysis_Main_Adjustments" xml:space="preserve">
     <value>Ajustes</value>
   </data>
-	<data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
+  <data name="Menu_DataAnalysis_Main_Movements" xml:space="preserve">
     <value>Movimientos</value>
   </data>
-	<data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
+  <data name="Menu_DataAnalysis_Main_Negatives" xml:space="preserve">
     <value>Stock negativo</value>
   </data>
-
-	<data name="Menu_PortalMovements" xml:space="preserve">
+  <data name="Menu_PortalMovements" xml:space="preserve">
     <value>Movimientos de portales</value>
   </data>
-	<data name="Menu_PortalMovements_Main" xml:space="preserve">
+  <data name="Menu_PortalMovements_Main" xml:space="preserve">
     <value>Firmar movimientos</value>
   </data>
-	<data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
+  <data name="Menu_PortalMovements_Main_Sign" xml:space="preserve">
     <value>Firmar</value>
   </data>
-	<data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
+  <data name="Menu_PortalMovements_Main_SignQuery" xml:space="preserve">
     <value>Consulta de firmas</value>
   </data>
-
-	<data name="Menu_Settings" xml:space="preserve">
+  <data name="Menu_Settings" xml:space="preserve">
     <value>Configuración</value>
   </data>
-
-	<!-- SECTIONS -->
-	<data name="Section_Purchases" xml:space="preserve">
+  <data name="Section_Purchases" xml:space="preserve">
     <value>Compras</value>
   </data>
-	<data name="Section_Sales" xml:space="preserve">
+  <data name="Section_Sales" xml:space="preserve">
     <value>Ventas</value>
   </data>
-	<data name="Section_SalesQuery" xml:space="preserve">
+  <data name="Section_SalesQuery" xml:space="preserve">
     <value>Consulta de ventas</value>
   </data>
-	<data name="Section_StockQuery" xml:space="preserve">
+  <data name="Section_StockQuery" xml:space="preserve">
     <value>Consulta de stock</value>
   </data>
-	<data name="Section_Transfers" xml:space="preserve">
+  <data name="Section_Transfers" xml:space="preserve">
     <value>Traspasos generales</value>
   </data>
-
-	<!-- TILES -->
-	<data name="Tile_General" xml:space="preserve">
+  <data name="Tile_General" xml:space="preserve">
     <value>General</value>
   </data>
-	<data name="Tile_Historic" xml:space="preserve">
+  <data name="Tile_Historic" xml:space="preserve">
     <value>Histórico</value>
   </data>
-	<data name="Tile_PurchaseCapture" xml:space="preserve">
+  <data name="Tile_PurchaseCapture" xml:space="preserve">
     <value>Compras</value>
   </data>
-	<data name="Tile_PurchaseQuery" xml:space="preserve">
+  <data name="Tile_PurchaseQuery" xml:space="preserve">
     <value>Consulta</value>
   </data>
-	<data name="Tile_SalesCapture" xml:space="preserve">
+  <data name="Tile_SalesCapture" xml:space="preserve">
     <value>Captura</value>
   </data>
-	<data name="Tile_SalesQuery" xml:space="preserve">
+  <data name="Tile_SalesQuery" xml:space="preserve">
     <value>Consulta</value>
   </data>
-	<data name="Tile_StocksGeneral" xml:space="preserve">
+  <data name="Tile_StocksGeneral" xml:space="preserve">
     <value>General</value>
   </data>
-	<data name="Tile_StocksWarehouses" xml:space="preserve">
+  <data name="Tile_StocksWarehouses" xml:space="preserve">
     <value>Almacenes</value>
   </data>
-	<data name="Tile_TransferCapture" xml:space="preserve">
+  <data name="Tile_TransferCapture" xml:space="preserve">
     <value>Captura</value>
   </data>
-	<data name="Tile_TransferQuery" xml:space="preserve">
+  <data name="Tile_TransferQuery" xml:space="preserve">
     <value>Consulta</value>
   </data>
-
-	<!-- UI -->
-	<data name="Ui_Login" xml:space="preserve">
+  <data name="Ui_Login" xml:space="preserve">
     <value>Iniciar sesión</value>
   </data>
-	<data name="Ui_Username" xml:space="preserve">
+  <data name="Ui_Username" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
-	<data name="Ui_Password" xml:space="preserve">
+  <data name="Ui_Password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
-	<data name="Ui_language" xml:space="preserve">
+  <data name="Ui_language" xml:space="preserve">
     <value>Idioma</value>
   </data>
-	<data name="Ui_MenuColor" xml:space="preserve">
+  <data name="Ui_MenuColor" xml:space="preserve">
     <value>Color del menú</value>
   </data>
-	<data name="Ui_Name" xml:space="preserve">
+  <data name="Ui_Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
-	<data name="Ui_Address" xml:space="preserve">
+  <data name="Ui_Address" xml:space="preserve">
     <value>Dirección</value>
   </data>
-	<data name="Ui_Phone" xml:space="preserve">
+  <data name="Ui_Phone" xml:space="preserve">
     <value>Teléfono</value>
   </data>
-	<data name="Ui_Notes" xml:space="preserve">
+  <data name="Ui_Notes" xml:space="preserve">
     <value>Observaciones</value>
   </data>
-	<data name="Ui_Status" xml:space="preserve">
+  <data name="Ui_Status" xml:space="preserve">
     <value>Estado</value>
   </data>
-	<data name="Ui_Clear" xml:space="preserve">
+  <data name="Ui_Clear" xml:space="preserve">
     <value>Vaciar</value>
   </data>
-	<data name="Ui_Save" xml:space="preserve">
+  <data name="Ui_Save" xml:space="preserve">
     <value>Guardar</value>
   </data>
-
-	<!-- ENTITIES -->
-	<data name="Ui_NewClient" xml:space="preserve">
+  <data name="Ui_NewClient" xml:space="preserve">
     <value>Nuevo cliente</value>
   </data>
-	<data name="Ui_NewColor" xml:space="preserve">
+  <data name="Ui_NewColor" xml:space="preserve">
     <value>Nuevo color</value>
   </data>
-	<data name="Ui_NewProduct" xml:space="preserve">
+  <data name="Ui_NewProduct" xml:space="preserve">
     <value>Nuevo producto</value>
   </data>
-	<data name="Ui_NewSupplier" xml:space="preserve">
+  <data name="Ui_NewSupplier" xml:space="preserve">
     <value>Nuevo proveedor</value>
   </data>
-	<data name="Ui_Product" xml:space="preserve">
+  <data name="Ui_Product" xml:space="preserve">
     <value>Producto</value>
   </data>
-	<data name="Ui_Price" xml:space="preserve">
+  <data name="Ui_Price" xml:space="preserve">
     <value>Precio</value>
   </data>
-
-	<!-- SCREENS -->
-	<data name="Screen_ClientsConsult" xml:space="preserve">
+  <data name="Screen_ClientsConsult" xml:space="preserve">
     <value>Consulta de clientes</value>
   </data>
-	<data name="Screen_SuppliersConsult" xml:space="preserve">
+  <data name="Screen_SuppliersConsult" xml:space="preserve">
     <value>Consulta de proveedores</value>
   </data>
-	<data name="Screen_UsersConsult" xml:space="preserve">
+  <data name="Screen_UsersConsult" xml:space="preserve">
     <value>Consulta de usuarios</value>
   </data>
-	<data name="Screen_ProductsConsult" xml:space="preserve">
+  <data name="Screen_ProductsConsult" xml:space="preserve">
     <value>Consulta de productos</value>
   </data>
-	<data name="Screen_ColorsConsult" xml:space="preserve">
+  <data name="Screen_ColorsConsult" xml:space="preserve">
     <value>Consulta de colores</value>
   </data>
-
-	<!-- SETTINGS -->
-	<data name="Settings_en" xml:space="preserve">
+  <data name="Settings_en" xml:space="preserve">
     <value>Inglés</value>
   </data>
-	<data name="Settings_es" xml:space="preserve">
+  <data name="Settings_es" xml:space="preserve">
     <value>Español</value>
   </data>
-	<data name="Settings_zh" xml:space="preserve">
+  <data name="Settings_zh" xml:space="preserve">
     <value>Chino</value>
   </data>
-
-
-
+  <data name="Ui_Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
 </root>

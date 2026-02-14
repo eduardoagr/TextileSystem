@@ -9,7 +9,7 @@
     xmlns:sf="http://schemas.syncfusion.com/maui"
     x:DataType="app:MainPageViewModel">
 
-    <Grid RowDefinitions="220,*">
+    <Grid RowDefinitions="220">
 
         <sf:SfTabView
             x:Name="MainTabView"
@@ -58,10 +58,10 @@
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate x:DataType="app:MenuTile">
 
-                                                    <app:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={RelativeSource AncestorType={x:Type app:MainPageViewModel}}}">
+                                                    <app:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}">
 
                                                         <app:MenuTileView.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{Binding}" />
+                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{Binding}" />
                                                         </app:MenuTileView.GestureRecognizers>
 
                                                     </app:MenuTileView>
@@ -74,7 +74,7 @@
                                     </VerticalStackLayout>
 
                                     <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="8" />
+                                        <RoundRectangle CornerRadius="16" />
                                     </Border.StrokeShape>
 
                                 </Border>
@@ -89,17 +89,14 @@
 
         </sf:SfTabView>
 
-        <Label
+        <app:AppBarButton
             Margin="0,10,20,0"
-            FontFamily="Mi"
-            FontSize="Medium"
+            Caption="{loc:Translate Ui_Settings}"
+            Command="{x:Binding OpenConfigurationsCommand}"
             HorizontalOptions="End"
-            Text="{x:Static app:MaterialIcon.Settings}"
-            VerticalOptions="Start">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{x:Binding OpenConfigurationsCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
+            Icon="{x:Static app:MaterialIcon.Settings}"
+            VerticalOptions="Start" />
+
 
         <sf:SfPopup
             x:Name="ConfigurationsPopup"

@@ -1,10 +1,12 @@
+
 namespace TextileSystem.Controls;
 
 public partial class MenuTileView : ContentView {
+
     public MenuTileView() {
         InitializeComponent();
-    }
 
+    }
 
     public static readonly BindableProperty TileColorProperty = BindableProperty.Create(
         nameof(TileColor), typeof(Color), typeof(MenuTileView));
@@ -18,8 +20,22 @@ public partial class MenuTileView : ContentView {
     public static readonly BindableProperty TileProperty =
         BindableProperty.Create(nameof(Tile), typeof(Models.MenuTile), typeof(MenuTileView));
 
-    public Models.MenuTile Tile {
-        get => (Models.MenuTile)GetValue(TileProperty);
+
+    public MenuTile Tile {
+        get => (MenuTile)GetValue(TileProperty);
         set => SetValue(TileProperty, value);
     }
+
+    void PointerEntered(object sender, PointerEventArgs e) {
+
+        VisualStateManager.GoToState(FrontBorder, "PointerOver");
+    }
+
+    void PointerExited(object sender, PointerEventArgs e) {
+
+        VisualStateManager.GoToState(FrontBorder, "Normal");
+    }
+
+
+
 }

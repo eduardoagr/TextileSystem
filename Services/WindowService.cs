@@ -1,22 +1,26 @@
 ﻿#if WINDOWS
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
+
 using Windows.Graphics;
+
 using WinRT.Interop;
 #endif
 
 #if MACCATALYST
-using CoreGraphics;
-
 using UIKit;
 #endif
 
 namespace TextileSystem.Services;
 
-public class WindowService : IWindowService
-{
-    public void MaximizeCurrentWindow()
-    {
+public class WindowService : IWindowService {
+
+    public void MaximizeCurrentWindow() {
+
+        MainThread.BeginInvokeOnMainThread(MaximizeCurrentWindowCore);
+    }
+
+    public static void MaximizeCurrentWindowCore() {
 #if WINDOWS
         MaximizeWindows();
 #elif MACCATALYST
@@ -28,28 +32,22 @@ public class WindowService : IWindowService
     // WINDOWS IMPLEMENTATION
     // -----------------------------
 #if WINDOWS
-    void MaximizeWindows()
-    {
-        var windows = Application.Current?.Windows;
-        if (windows == null || windows.Count == 0)
-        {
-            return;
-        }
+    static void MaximizeWindows() {
 
-        var mauiWindow = windows[0];
-        var platformWindow = mauiWindow.Handler?.PlatformView;
-        if (platformWindow == null)
-        {
+        if(Application.Current?.Windows is not { Count: > 0 } windows)
             return;
-        }
+
+        if(windows[0].Handler?.PlatformView is not { } platformWindow)
+            return;
 
         var hwnd = WindowNative.GetWindowHandle(platformWindow);
         var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-        var appWindow = AppWindow.GetFromWindowId(windowId);
 
-        if (appWindow.Presenter is OverlappedPresenter presenter)
-        {
+        if(AppWindow.GetFromWindowId(windowId).Presenter is OverlappedPresenter presenter) {
             presenter.Maximize();
+            presenter.IsMaximizable = false;
+            presenter.IsResizable = false;
+            presenter.IsMinimizable = true;
         }
     }
 #endif
@@ -58,13 +56,29 @@ public class WindowService : IWindowService
     // MACCATALYST IMPLEMENTATION
     // -----------------------------
 #if MACCATALYST
-    static void MaximizeMac()
-    {
-        var nsAppClass = ObjCRuntime.Class.GetHandle("NSApplication");
-        var nsApp = ObjCRuntime.Runtime.GetNSObject(nsAppClass);
-        var sharedApp = nsApp?.PerformSelector(new ObjCRuntime.Selector("sharedApplication"));
-        var keyWindow = sharedApp?.PerformSelector(new ObjCRuntime.Selector("keyWindow"));
-        keyWindow?.PerformSelector(new ObjCRuntime.Selector("toggleFullScreen:"), keyWindow);
+    static void MaximizeMac() {
+
+        var scene = UIApplication.SharedApplication
+                               .ConnectedScenes
+                               .OfType<UIWindowScene>()
+                               .FirstOrDefault();
+
+        var window = scene?.Windows.FirstOrDefault();
+
+        if(scene == null || window == null)
+            return;
+
+
+        var bounds = scene.Screen.Bounds;
+
+        scene.RequestGeometryUpdate(
+            new UIWindowSceneGeometryPreferencesMac(bounds),
+            error => { });
+
+        if(scene.SizeRestrictions is { } restrictions) {
+            restrictions.MinimumSize = bounds.Size;
+            restrictions.MaximumSize = bounds.Size;
+        }
     }
 #endif
 }

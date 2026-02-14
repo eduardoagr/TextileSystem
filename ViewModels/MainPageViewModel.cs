@@ -1,6 +1,5 @@
 ﻿namespace TextileSystem.ViewModels;
 
-
 public partial class MainPageViewModel : ObservableObject {
 
     private readonly IRibbonMenuBuilder _menuBuilder;
@@ -41,103 +40,105 @@ public partial class MainPageViewModel : ObservableObject {
 
     [RelayCommand]
     private void ExecuteTile(MenuTile tile) {
-        if(tile is not null) {
-            switch(tile.Action) {
+        if(tile is null) {
+            return;
+        }
 
-                // -----------------------------
-                // Captura & Consulta
-                // -----------------------------
+        switch(tile.Action) {
 
-                case MenuTile.MenuAction.VentaConsultaGeneral:
-                    break;
+            // -----------------------------
+            // Captura & Consulta
+            // -----------------------------
 
-                case MenuTile.MenuAction.VentaConsultaHistorico:
-                    break;
+            case MenuAction.VentaConsultaGeneral:
+                break;
 
-                case MenuTile.MenuAction.StockConsultaGeneral:
-                    break;
+            case MenuAction.VentaConsultaHistorico:
+                break;
 
-                case MenuTile.MenuAction.StockConsultaAlmacenes:
-                    break;
+            case MenuAction.StockConsultaGeneral:
+                break;
 
-                case MenuTile.MenuAction.TraspasoCaptura:
-                    break;
+            case MenuAction.StockConsultaAlmacenes:
+                break;
 
-                case MenuTile.MenuAction.TraspasoConsulta:
-                    break;
+            case MenuAction.TraspasoCaptura:
+                break;
 
-                case MenuTile.MenuAction.VentaCaptura:
-                    break;
+            case MenuAction.TraspasoConsulta:
+                break;
 
-                case MenuTile.MenuAction.VentaConsulta:
-                    break;
+            case MenuAction.VentaCaptura:
+                break;
 
-                case MenuTile.MenuAction.CompraCaptura:
-                    break;
+            case MenuAction.VentaConsulta:
+                break;
 
-                case MenuTile.MenuAction.CompraConsulta:
-                    break;
+            case MenuAction.CompraCaptura:
+                break;
 
-                // -----------------------------
-                // Catálogos
-                // -----------------------------
+            case MenuAction.CompraConsulta:
+                break;
 
-                case MenuTile.MenuAction.ClientesConsulta:
-                    WindowFactory.CreateCentered<CatalogsClientsConsult>(_loc["Screen_ClientsConsult"], 1400, 800);
-                    break;
+            // -----------------------------
+            // Catálogos
+            // -----------------------------
 
-                case MenuTile.MenuAction.ProveedoresConsulta:
-                    WindowFactory.CreateCentered<CatalogsProvidersConsult>(_loc["Screen_SuppliersConsult"], 1400, 800);
-                    break;
+            case MenuAction.ClientesConsulta:
+                WindowFactory.CreateCentered<CatalogsClientsConsult>(_loc["Screen_ClientsConsult"], 1400, 800);
+                break;
 
-                case MenuTile.MenuAction.UsuariosConsulta:
-                    WindowFactory.CreateCentered<CatalogsUsersConsult>(_loc["Screen_UsersConsult"], 1000, 600);
-                    break;
+            case MenuAction.ProveedoresConsulta:
+                WindowFactory.CreateCentered<CatalogsProvidersConsult>(_loc["Screen_SuppliersConsult"], 1400, 800);
+                break;
 
-                case MenuTile.MenuAction.ProductosConsulta:
-                    WindowFactory.CreateCentered<CatalogsProductConsult>(_loc["Screen_ProductsConsult"], 600, 600);
-                    break;
+            case MenuAction.UsuariosConsulta:
+                WindowFactory.CreateCentered<CatalogsUsersConsult>(_loc["Screen_UsersConsult"], 1000, 600);
+                break;
 
-                case MenuTile.MenuAction.ColoresConsulta:
-                    WindowFactory.CreateCentered<CatalogsColorsConsult>(_loc["Screen_ColorsConsult"], 600, 600);
-                    break;
+            case MenuAction.ProductosConsulta:
+                WindowFactory.CreateCentered<CatalogsProductConsult>(_loc["Screen_ProductsConsult"], 600, 600);
+                break;
 
-                // -----------------------------
-                // Portales
-                // -----------------------------
+            case MenuAction.ColoresConsulta:
+                WindowFactory.CreateCentered<CatalogsColorsConsult>(_loc["Screen_ColorsConsult"], 600, 600);
+                break;
 
-                case MenuTile.MenuAction.FirmarMovimiento:
-                    break;
+            // -----------------------------
+            // Portales
+            // -----------------------------
 
-                case MenuTile.MenuAction.FirmarMovimientoConsulta:
-                    break;
+            case MenuAction.FirmarMovimiento:
+                break;
 
-                // -----------------------------
-                // Análisis
-                // -----------------------------
+            case MenuAction.FirmarMovimientoConsulta:
+                break;
 
-                case MenuTile.MenuAction.InformeNegativos:
-                    break;
+            // -----------------------------
+            // Análisis
+            // -----------------------------
 
-                case MenuTile.MenuAction.InformeAjustes:
-                    break;
+            case MenuAction.InformeNegativos:
+                break;
 
-                case MenuTile.MenuAction.InformeMovimientos:
-                    break;
+            case MenuAction.InformeAjustes:
+                break;
 
-                default:
-                    throw new NotImplementedException(
-                        $"Menu action not handled: {tile.Action}"
-                    );
-            }
+            case MenuAction.InformeMovimientos:
+                break;
+
+            default:
+                throw new NotImplementedException(
+                    $"Menu action not handled: {tile.Action}"
+                );
         }
     }
 
+
     [RelayCommand]
     public void OnColorChanged(Color newColor) {
-        TileColor = newColor;
         AppSettings.SetTileColor(newColor);
-
+        TileColor = newColor;
     }
 
     [RelayCommand]
