@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Required to get full commit history for semantic versioning
+          fetch-depth: 0  # Required for semantic versioning
 
       # --------------------------
       # Setup .NET 10
@@ -36,15 +36,19 @@ jobs:
         run: dotnet workload install maui
 
       # --------------------------
-      # Get latest tag
+      # Get latest tag safely
       # --------------------------
       - name: Get latest tag
         id: gettag
         shell: pwsh
         run: |
-          $tag = git describe --tags --abbrev=0 2>$null
-          if (-not $tag) { $tag = "v0.0.0" }
+          try {
+              $tag = git describe --tags --abbrev=0
+          } catch {
+              $tag = "v0.0.0"
+          }
           echo "CURRENT_TAG=$tag" >> $env:GITHUB_ENV
+          Write-Host "Latest tag: $tag"
 
       # --------------------------
       # Calculate next semantic version
@@ -77,7 +81,7 @@ jobs:
 
           $newVersion = "v$major.$minor.$patch"
           echo "VERSION=$newVersion" >> $env:GITHUB_ENV
-          echo "Calculated version: $newVersion"
+          Write-Host "Calculated version: $newVersion"
 
       # --------------------------
       # Restore dependencies
@@ -98,33 +102,42 @@ jobs:
         run: dotnet publish -c Release -f net10.0-android -p:AndroidPackageFormat=apk
 
       # --------------------------
-      # Zip Windows build
+      # Zip Windows build (only if folder exists)
       # --------------------------
       - name: Zip Windows build
         shell: pwsh
         run: |
-          $winPath = "bin/Release/net10.0-windows10.0.19041.0/win10-x64/publish"
+          $winPath = "bin/Release/net10.0-windows10.0.19041.0/publish"
           $winZip = "TextileSystem-Windows-$env:VERSION.zip"
-          Compress-Archive -Path "$winPath/*" -DestinationPath $winZip
-          echo "Windows zip created: $winZip"
-          echo "WIN_ZIP=$winZip" >> $env:GITHUB_ENV
+          if (Test-Path $winPath) {
+              Compress-Archive -Path "$winPath\*" -DestinationPath $winZip
+              echo "Windows zip created: $winZip"
+              echo "WIN_ZIP=$winZip" >> $env:GITHUB_ENV
+          } else {
+              Write-Host "Windows publish folder not found. Skipping zip."
+          }
 
       # --------------------------
-      # Zip Android build
+      # Zip Android build (only if folder exists)
       # --------------------------
       - name: Zip Android build
         shell: pwsh
         run: |
           $androidPath = "bin/Release/net10.0-android/android-arm64/publish"
           $androidZip = "TextileSystem-Android-$env:VERSION.zip"
-          Compress-Archive -Path "$androidPath/*" -DestinationPath $androidZip
-          echo "Android zip created: $androidZip"
-          echo "ANDROID_ZIP=$androidZip" >> $env:GITHUB_ENV
+          if (Test-Path $androidPath) {
+              Compress-Archive -Path "$androidPath\*" -DestinationPath $androidZip
+              echo "Android zip created: $androidZip"
+              echo "ANDROID_ZIP=$androidZip" >> $env:GITHUB_ENV
+          } else {
+              Write-Host "Android publish folder not found. Skipping zip."
+          }
 
       # --------------------------
-      # Create GitHub Release
+      # Create GitHub Release (only if zips exist)
       # --------------------------
       - name: Create GitHub Release
+        if: env.WIN_ZIP != '' || env.ANDROID_ZIP != ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.VERSION }}
