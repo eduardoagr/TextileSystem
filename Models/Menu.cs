@@ -31,14 +31,14 @@ public partial class MenuTile : ObservableObject {
     public string Title { get; set; } = string.Empty;
 
     [ObservableProperty]
-    public partial Color tileColor { get; set; }
+    public partial Color TileColor { get; set; }
 
     /// <summary>
     /// Icon resource name (png / svg)
     /// </summary>
     public string Icon { get; set; } = string.Empty;
 
-    public string helpText { get; set; } = string.Empty;
+    public string HelpText { get; set; } = string.Empty;
 
     public MenuAction Action { get; set; }
 

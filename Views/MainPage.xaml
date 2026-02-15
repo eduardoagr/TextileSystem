@@ -6,13 +6,13 @@
     xmlns:app="http://schemas.textilesystem.com/maui"
     xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
-    xmlns:sf="http://schemas.syncfusion.com/maui"
+    xmlns:pop="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
+    xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
     x:DataType="app:MainPageViewModel">
 
     <Grid RowDefinitions="220">
 
-        <sf:SfTabView
-            x:Name="MainTabView"
+        <tabView:SfTabView
             IndicatorBackground="{x:Binding TileColor}"
             IndicatorStrokeThickness="1"
             ItemsSource="{x:Binding Sections}"
@@ -20,17 +20,17 @@
             TabWidthMode="SizeToContent">
 
             <!--  HEADER TEMPLATE  -->
-            <sf:SfTabView.HeaderItemTemplate>
+            <tabView:SfTabView.HeaderItemTemplate>
                 <DataTemplate x:DataType="app:MenuSection">
                     <Label
                         Padding="10"
                         FontAttributes="Bold"
                         Text="{x:Binding Title}" />
                 </DataTemplate>
-            </sf:SfTabView.HeaderItemTemplate>
+            </tabView:SfTabView.HeaderItemTemplate>
 
             <!--  CONTENT TEMPLATE  -->
-            <sf:SfTabView.ContentItemTemplate>
+            <tabView:SfTabView.ContentItemTemplate>
                 <DataTemplate x:DataType="app:MenuSection">
 
                     <CollectionView Margin="0,10,0,0" ItemsSource="{x:Binding Groups}">
@@ -59,7 +59,7 @@
                                                 <DataTemplate x:DataType="app:MenuTile">
                                                     <app:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}">
                                                         <app:MenuTileView.GestureRecognizers>
-                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{Binding}" />
+                                                            <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{x:Binding}" />
                                                         </app:MenuTileView.GestureRecognizers>
                                                     </app:MenuTileView>
                                                 </DataTemplate>
@@ -75,8 +75,8 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </DataTemplate>
-            </sf:SfTabView.ContentItemTemplate>
-        </sf:SfTabView>
+            </tabView:SfTabView.ContentItemTemplate>
+        </tabView:SfTabView>
 
         <app:AppBarButton
             Margin="0,10,20,0"
@@ -87,16 +87,15 @@
             VerticalOptions="Start" />
 
 
-        <sf:SfPopup
-            x:Name="ConfigurationsPopup"
+        <pop:SfPopup
             AnimationMode="Zoom"
             AutoSizeMode="Both"
             IsOpen="{x:Binding IsConfigurationsOpen}"
             ShowHeader="False">
-            <sf:SfPopup.PopupStyle>
-                <sf:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
-            </sf:SfPopup.PopupStyle>
-            <sf:SfPopup.ContentTemplate>
+            <pop:SfPopup.PopupStyle>
+                <pop:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </pop:SfPopup.PopupStyle>
+            <pop:SfPopup.ContentTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="10" Spacing="10">
                         <Border Padding="10">
@@ -125,7 +124,7 @@
                         </Border>
                     </VerticalStackLayout>
                 </DataTemplate>
-            </sf:SfPopup.ContentTemplate>
-        </sf:SfPopup>
+            </pop:SfPopup.ContentTemplate>
+        </pop:SfPopup>
     </Grid>
 </ContentPage>

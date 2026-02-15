@@ -4,8 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:app="http://schemas.textilesystem.com/maui"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:loc="clr-namespace:LocalizationResourceManager.Maui;assembly=LocalizationResourceManager.Maui"
-    xmlns:sf="http://schemas.syncfusion.com/maui"
+    xmlns:pop="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
     x:DataType="app:CatalogsProductConsultViewModel">
 
     <Grid
@@ -14,7 +16,7 @@
         RowDefinitions="46,*"
         RowSpacing="10">
 
-        <sf:SfComboBox />
+        <editors:SfComboBox />
 
         <app:CustomButton
             x:Name="PopupAnchor"
@@ -41,7 +43,7 @@
         </Border>
 
 
-        <sf:SfPopup
+        <pop:SfPopup
             AnimationMode="Zoom"
             AutoSizeMode="Height"
             IsOpen="{x:Binding IsCreateProductDialogOpen}"
@@ -51,17 +53,17 @@
             StaysOpen="True"
             WidthRequest="400">
 
-            <sf:SfPopup.PopupStyle>
-                <sf:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
-            </sf:SfPopup.PopupStyle>
+            <pop:SfPopup.PopupStyle>
+                <pop:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
+            </pop:SfPopup.PopupStyle>
 
-            <sf:SfPopup.ContentTemplate>
+            <pop:SfPopup.ContentTemplate>
                 <DataTemplate>
                     <Grid Padding="10" RowDefinitions="80,*">
 
-                        <sf:SfTextInputLayout Hint="{loc:Translate Ui_Product}">
+                        <inputLayout:SfTextInputLayout Hint="{loc:Translate Ui_Product}">
                             <Entry Text="{x:Binding NewProduct}" />
-                        </sf:SfTextInputLayout>
+                        </inputLayout:SfTextInputLayout>
 
 
                         <HorizontalStackLayout
@@ -73,7 +75,7 @@
                         </HorizontalStackLayout>
                     </Grid>
                 </DataTemplate>
-            </sf:SfPopup.ContentTemplate>
-        </sf:SfPopup>
+            </pop:SfPopup.ContentTemplate>
+        </pop:SfPopup>
     </Grid>
 </ContentPage>

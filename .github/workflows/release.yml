@@ -1,0 +1,98 @@
+name: Smart Auto Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install MAUI
+        run: dotnet workload install maui
+
+      # --------------------------
+      # Get latest version tag
+      # --------------------------
+      - name: Get latest tag
+        id: gettag
+        shell: pwsh
+        run: |
+          $tag = git describe --tags --abbrev=0 2>$null
+          if (-not $tag) { $tag = "v0.0.0" }
+          echo "CURRENT_TAG=$tag" >> $env:GITHUB_ENV
+
+      # --------------------------
+      # Determine version bump
+      # --------------------------
+      - name: Calculate next version
+        id: version
+        shell: pwsh
+        run: |
+          $current = $env:CURRENT_TAG.TrimStart("v")
+          $parts = $current.Split(".")
+          $major = [int]$parts[0]
+          $minor = [int]$parts[1]
+          $patch = [int]$parts[2]
+
+          $messages = git log -1 --pretty=%B
+
+          if ($messages -match "BREAKING:") {
+            $major++
+            $minor = 0
+            $patch = 0
+          }
+          elseif ($messages -match "feat:") {
+            $minor++
+            $patch = 0
+          }
+          else {
+            $patch++
+          }
+
+          $newVersion = "v$major.$minor.$patch"
+          echo "VERSION=$newVersion" >> $env:GITHUB_ENV
+
+      # --------------------------
+      # Restore & Publish
+      # --------------------------
+      - name: Restore
+        run: dotnet restore
+
+      - name: Publish Windows
+        run: dotnet publish -c Release -f net10.0-windows10.0.19041.0 -p:WindowsPackageType=None
+
+      # --------------------------
+      # Zip build
+      # --------------------------
+      - name: Zip build
+        shell: pwsh
+        run: |
+          Compress-Archive `
+            -Path "bin/Release/net10.0-windows10.0.19041.0/win10-x64/publish/*" `
+            -DestinationPath "TextileSystem-$env:VERSION.zip"
+
+      # --------------------------
+      # Create Release
+      # --------------------------
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Release ${{ env.VERSION }}
+          files: TextileSystem-${{ env.VERSION }}.zip

@@ -18,7 +18,7 @@ public partial class MenuTileView : ContentView {
 
 
     public static readonly BindableProperty TileProperty =
-        BindableProperty.Create(nameof(Tile), typeof(Models.MenuTile), typeof(MenuTileView));
+        BindableProperty.Create(nameof(Tile), typeof(MenuTile), typeof(MenuTileView));
 
 
     public MenuTile Tile {
