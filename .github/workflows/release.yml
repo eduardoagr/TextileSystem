@@ -1,9 +1,9 @@
-name: Smart Auto Release
+name: Smart MAUI Auto Release
 
 on:
   push:
     branches:
-      - master
+      - master  # Change to 'main' if your default branch is main
 
 permissions:
   contents: write
@@ -13,21 +13,30 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout
+      # --------------------------
+      # Checkout code
+      # --------------------------
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Required to get full commit history for semantic versioning
 
-      - name: Setup .NET
+      # --------------------------
+      # Setup .NET 10
+      # --------------------------
+      - name: Setup .NET 10
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
 
+      # --------------------------
+      # Install MAUI workloads
+      # --------------------------
       - name: Install MAUI
         run: dotnet workload install maui
 
       # --------------------------
-      # Get latest version tag
+      # Get latest tag
       # --------------------------
       - name: Get latest tag
         id: gettag
@@ -38,7 +47,7 @@ jobs:
           echo "CURRENT_TAG=$tag" >> $env:GITHUB_ENV
 
       # --------------------------
-      # Determine version bump
+      # Calculate next semantic version
       # --------------------------
       - name: Calculate next version
         id: version
@@ -50,7 +59,8 @@ jobs:
           $minor = [int]$parts[1]
           $patch = [int]$parts[2]
 
-          $messages = git log -1 --pretty=%B
+          # Get commit messages since last tag
+          $messages = git log $env:CURRENT_TAG..HEAD --pretty=%B
 
           if ($messages -match "BREAKING:") {
             $major++
@@ -67,32 +77,56 @@ jobs:
 
           $newVersion = "v$major.$minor.$patch"
           echo "VERSION=$newVersion" >> $env:GITHUB_ENV
+          echo "Calculated version: $newVersion"
 
       # --------------------------
-      # Restore & Publish
+      # Restore dependencies
       # --------------------------
       - name: Restore
         run: dotnet restore
 
+      # --------------------------
+      # Build Windows
+      # --------------------------
       - name: Publish Windows
         run: dotnet publish -c Release -f net10.0-windows10.0.19041.0 -p:WindowsPackageType=None
 
       # --------------------------
-      # Zip build
+      # Build Android
       # --------------------------
-      - name: Zip build
-        shell: pwsh
-        run: |
-          Compress-Archive `
-            -Path "bin/Release/net10.0-windows10.0.19041.0/win10-x64/publish/*" `
-            -DestinationPath "TextileSystem-$env:VERSION.zip"
+      - name: Publish Android
+        run: dotnet publish -c Release -f net10.0-android -p:AndroidPackageFormat=apk
 
       # --------------------------
-      # Create Release
+      # Zip Windows build
       # --------------------------
-      - name: Create Release
+      - name: Zip Windows build
+        shell: pwsh
+        run: |
+          $winPath = "bin/Release/net10.0-windows10.0.19041.0/win10-x64/publish"
+          $winZip = "TextileSystem-Windows-$env:VERSION.zip"
+          Compress-Archive -Path "$winPath/*" -DestinationPath $winZip
+          echo "Windows zip created: $winZip"
+          echo "WIN_ZIP=$winZip" >> $env:GITHUB_ENV
+
+      # --------------------------
+      # Zip Android build
+      # --------------------------
+      - name: Zip Android build
+        shell: pwsh
+        run: |
+          $androidPath = "bin/Release/net10.0-android/android-arm64/publish"
+          $androidZip = "TextileSystem-Android-$env:VERSION.zip"
+          Compress-Archive -Path "$androidPath/*" -DestinationPath $androidZip
+          echo "Android zip created: $androidZip"
+          echo "ANDROID_ZIP=$androidZip" >> $env:GITHUB_ENV
+
+      # --------------------------
+      # Create GitHub Release
+      # --------------------------
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.VERSION }}
           name: Release ${{ env.VERSION }}
-          files: TextileSystem-${{ env.VERSION }}.zip
+          files: ${{ env.WIN_ZIP }},${{ env.ANDROID_ZIP }}
