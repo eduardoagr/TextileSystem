@@ -57,36 +57,25 @@
 
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate x:DataType="app:MenuTile">
-
                                                     <app:MenuTileView Tile="{x:Binding}" TileColor="{x:Binding TileColor, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}">
-
                                                         <app:MenuTileView.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{x:Binding ExecuteTileCommand, Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}" CommandParameter="{Binding}" />
                                                         </app:MenuTileView.GestureRecognizers>
-
                                                     </app:MenuTileView>
-
                                                 </DataTemplate>
+
                                             </BindableLayout.ItemTemplate>
-
                                         </HorizontalStackLayout>
-
                                     </VerticalStackLayout>
-
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="16" />
                                     </Border.StrokeShape>
-
                                 </Border>
-
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-
                     </CollectionView>
-
                 </DataTemplate>
             </sf:SfTabView.ContentItemTemplate>
-
         </sf:SfTabView>
 
         <app:AppBarButton
@@ -101,10 +90,9 @@
         <sf:SfPopup
             x:Name="ConfigurationsPopup"
             AnimationMode="Zoom"
-            HeightRequest="600"
+            AutoSizeMode="Both"
             IsOpen="{x:Binding IsConfigurationsOpen}"
-            ShowHeader="False"
-            WidthRequest="360">
+            ShowHeader="False">
             <sf:SfPopup.PopupStyle>
                 <sf:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
             </sf:SfPopup.PopupStyle>
@@ -126,9 +114,10 @@
                                 <inputs:SfColorPicker
                                     ColorChangedCommand="{x:Binding ColorChangedCommand,
                                                                     Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}"
-                                    ColorMode="Palette"
+                                    ColorMode="Spectrum"
                                     HorizontalOptions="Start"
-                                    IsInline="True" />
+                                    IsInline="True"
+                                    ShowAlphaSlider="True" />
                             </VerticalStackLayout>
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8" />
@@ -138,9 +127,5 @@
                 </DataTemplate>
             </sf:SfPopup.ContentTemplate>
         </sf:SfPopup>
-
-
-
     </Grid>
-
 </ContentPage>

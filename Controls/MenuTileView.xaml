@@ -27,16 +27,17 @@
                                             Source={x:Reference Root}}"
                 StrokeShape="RoundRectangle 14"
                 StrokeThickness="4">
-                <VerticalStackLayout
+                
+                <VerticalStackLayout    
                     Padding="14"
                     HorizontalOptions="Center"
                     VerticalOptions="Center">
 
                     <Image
-                        HeightRequest="32"
+                        HeightRequest="42"
                         Source="{x:Binding Tile.Icon,
                                            Source={x:Reference Root}}"
-                        WidthRequest="32" />
+                        WidthRequest="42" />
                 </VerticalStackLayout>
 
                 <VisualStateManager.VisualStateGroups>
@@ -74,7 +75,7 @@
             FontAttributes="Bold"
             FontSize="14"
             HorizontalTextAlignment="Center"
-            MaxLines="2"
+            MaxLines="1"
             Text="{x:Binding Tile.Title,
                              Source={x:Reference Root}}" />
 
