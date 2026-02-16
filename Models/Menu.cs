@@ -30,9 +30,6 @@ public partial class MenuTile : ObservableObject {
 
     public string Title { get; set; } = string.Empty;
 
-    [ObservableProperty]
-    public partial Color TileColor { get; set; }
-
     /// <summary>
     /// Icon resource name (png / svg)
     /// </summary>
