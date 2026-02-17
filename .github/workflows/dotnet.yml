@@ -21,11 +21,9 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
 
-    # RESTORE SOLO PARA WINDOWS
     - name: Restore Windows Target
-      run: dotnet restore TextileSystem.csproj -f net10.0-windows10.0.19041.0
+      run: dotnet restore TextileSystem.csproj --framework net10.0-windows10.0.19041.0
 
-    # PUBLICAR SOLO WINDOWS (genera EXE real)
     - name: Publish Windows
       run: dotnet publish TextileSystem.csproj `
             -c Release `
@@ -38,13 +36,11 @@ jobs:
             --no-restore
       shell: powershell
 
-    # CREAR ZIP
     - name: Zip Build
       run: |
         Compress-Archive -Path output\* -DestinationPath TextileSystem-Windows.zip
       shell: powershell
 
-    # SUBIR ZIP COMO ARTIFACT
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
