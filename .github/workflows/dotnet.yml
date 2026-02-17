@@ -22,13 +22,11 @@ jobs:
       run: dotnet workload install maui
 
     # NO RESTORE — evita restaurar Android/iOS/Mac
-    # DIRECTAMENTE PUBLICAMOS WINDOWS
-
     - name: Publish Windows
       run: dotnet publish TextileSystem.csproj `
             -c Release `
             -f net10.0-windows10.0.19041.0 `
-            -r win10-x64 `
+            -r win-x64 `
             --self-contained true `
             -p:PublishSingleFile=true `
             -p:IncludeNativeLibrariesForSelfExtract=true `
