@@ -21,7 +21,7 @@
         <app:BusyButton
             Grid.Row="2"
             Command="{x:Binding SignInCommand}"
-            IsBusy="{x:Binding isBusy}"
+            IsBusy="{x:Binding IsBusy}"
             Text="{loc:Translate Ui_Login}"
             Color="#481662" />
 

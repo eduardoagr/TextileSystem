@@ -96,7 +96,7 @@
                 <pop:PopupStyle CornerRadius="8" PopupBackground="{x:AppThemeBinding Dark={x:StaticResource Black}, Light={x:StaticResource White}}" />
             </pop:SfPopup.PopupStyle>
             <pop:SfPopup.ContentTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="app:MainPageViewModel">
                     <VerticalStackLayout Padding="10" Spacing="10">
                         <Border Padding="10">
                             <HorizontalStackLayout Spacing="12">
@@ -111,8 +111,7 @@
                             <VerticalStackLayout Spacing="10">
                                 <Label Text="{loc:Translate Ui_MenuColor}" />
                                 <inputs:SfColorPicker
-                                    ColorChangedCommand="{x:Binding ColorChangedCommand,
-                                                                    Source={x:RelativeSource AncestorType={x:Type app:MainPageViewModel}}}"
+                                    ColorChangedCommand="{x:Binding ColorChangedCommand}"
                                     ColorMode="Spectrum"
                                     HorizontalOptions="Start"
                                     IsInline="True"

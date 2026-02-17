@@ -3,14 +3,14 @@
 public partial class AuthPageViewModel(IWindowService windowService, IShellService shellService) : ObservableObject {
 
     [ObservableProperty]
-    public partial bool isBusy { get; set; }
+    public partial bool IsBusy { get; set; }
 
     [RelayCommand]
     async Task SignIn() {
 
         var idiom = DeviceInfo.Idiom;
 
-        isBusy = true;
+        IsBusy = true;
 
         await Task.Delay(2000); // Simulate sign-in process
 
@@ -24,7 +24,7 @@ public partial class AuthPageViewModel(IWindowService windowService, IShellServi
             await shellService.DisplayAlertAsync("Notice", "Sign-in is not available on Phone devices.", "OK");
         }
 
-        isBusy = false;
+        IsBusy = false;
 
     }
 }
