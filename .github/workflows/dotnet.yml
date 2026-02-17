@@ -1,0 +1,33 @@
+name: Build MAUI Windows
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Install MAUI workload
+      run: dotnet workload install maui
+
+    - name: Restore
+      run: dotnet restore TextileSystem.csproj
+
+    - name: Publish Windows
+      run: dotnet publish TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0 -o output
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TextileSystem-Windows
+        path: output
