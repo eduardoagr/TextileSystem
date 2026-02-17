@@ -21,7 +21,13 @@ jobs:
       run: dotnet workload install maui
 
     - name: Restore
-      run: dotnet restore TextileSystem/TextileSystem.csproj
+      run: dotnet restore TextileSystem.csproj
 
-    - name: Build Windows
-      run: dotnet build TextileSystem/TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0
+    - name: Publish Windows
+      run: dotnet publish TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0 -o output
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TextileSystem-Windows
+        path: output
