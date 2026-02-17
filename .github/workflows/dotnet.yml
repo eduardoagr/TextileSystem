@@ -24,11 +24,12 @@ jobs:
     - name: Restore
       run: dotnet restore TextileSystem.csproj
 
-    - name: Publish Windows (single-file)
-      run: dotnet publish TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0 -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=false -p:PublishDir=output --no-build
+    - name: Build Windows
+      run: dotnet build TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0
 
-    - name: Zip Output
-      run: Compress-Archive -Path output\* -DestinationPath TextileSystem-Windows.zip
+    - name: Zip Build Output
+      run: |
+        Compress-Archive -Path "TextileSystem\bin\Release\net10.0-windows10.0.19041.0\win10-x64\*" -DestinationPath TextileSystem-Windows.zip
       shell: powershell
 
     - name: Upload Artifact
