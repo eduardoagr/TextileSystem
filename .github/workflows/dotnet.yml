@@ -26,26 +26,26 @@ jobs:
     - name: Restore
       run: dotnet restore TextileSystem.csproj
 
-    # 🏷 Generate Version Number
+    # 🏷 Generate Version Number (1.0.<run_number>)
     - name: Set Version
       run: |
         $version = "1.0.${{ github.run_number }}"
         echo "VERSION=$version" >> $env:GITHUB_ENV
       shell: powershell
 
-    # 🔥 Publish Standalone EXE
+    # 🔥 Publish self-contained single-file EXE for Windows 10 x64
     - name: Publish Windows EXE
       run: dotnet publish TextileSystem.csproj `
             -c Release `
             -f net10.0-windows10.0.19041.0 `
-            -r win-x64 `
+            -r win10-x64 `
             --self-contained true `
             -p:PublishSingleFile=true `
             -p:IncludeNativeLibrariesForSelfExtract=true `
             -o output
       shell: powershell
 
-    # 📦 Rename EXE
+    # 📦 Rename EXE to include version
     - name: Rename EXE
       run: |
         Rename-Item "output\TextileSystem.exe" "TextileSystem-$env:VERSION.exe"
@@ -57,14 +57,14 @@ jobs:
         Compress-Archive -Path output\* -DestinationPath TextileSystem-$env:VERSION.zip
       shell: powershell
 
-    # 🎁 Upload Artifact
+    # 🎁 Upload Artifact (for Actions / API)
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: TextileSystem-${{ env.VERSION }}
         path: TextileSystem-${{ env.VERSION }}.zip
 
-    # 🚀 Create GitHub Release (only when pushing a tag like v1.0.0)
+    # 🚀 Create GitHub Release when pushing a tag like v1.0.0
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
