@@ -26,12 +26,12 @@ public partial class MenuTileView : ContentView {
         set => SetValue(TileProperty, value);
     }
 
-    void PointerEntered(object sender, PointerEventArgs e) {
+    void PointerEntered(object? sender, PointerEventArgs e) {
 
         VisualStateManager.GoToState(FrontBorder, "PointerOver");
     }
 
-    void PointerExited(object sender, PointerEventArgs e) {
+    void PointerExited(object? sender, PointerEventArgs e) {
 
         VisualStateManager.GoToState(FrontBorder, "Normal");
     }

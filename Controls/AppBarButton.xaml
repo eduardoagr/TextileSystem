@@ -12,7 +12,7 @@
             Text="{x:Binding Icon,
                              Source={x:Reference Root}}" />
         <Label
-            FontSize="Small"
+            FontSize="12"
             HorizontalTextAlignment="Center"
             Text="{x:Binding Caption,
                              Source={x:Reference Root}}" />

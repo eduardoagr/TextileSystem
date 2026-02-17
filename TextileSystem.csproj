@@ -12,6 +12,8 @@
 		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<MauiXamlInflator>SourceGen</MauiXamlInflator>
+		<NoWarn>MAUIG2045</NoWarn>
 		<MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
 
 		<!-- Display name -->
