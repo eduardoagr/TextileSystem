@@ -35,7 +35,4 @@ public partial class MenuTileView : ContentView {
 
         VisualStateManager.GoToState(FrontBorder, "Normal");
     }
-
-
-
 }

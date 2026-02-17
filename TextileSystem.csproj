@@ -12,7 +12,6 @@
 		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<WarningsAsErrors>false</WarningsAsErrors>
 
 		<!-- Display name -->
 		<ApplicationTitle>TextileSystem</ApplicationTitle>
