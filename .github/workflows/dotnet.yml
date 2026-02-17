@@ -21,8 +21,8 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
 
-    - name: Restore Windows Target
-      run: dotnet restore TextileSystem.csproj --framework net10.0-windows10.0.19041.0
+    # NO RESTORE — evita restaurar Android/iOS/Mac
+    # DIRECTAMENTE PUBLICAMOS WINDOWS
 
     - name: Publish Windows
       run: dotnet publish TextileSystem.csproj `
