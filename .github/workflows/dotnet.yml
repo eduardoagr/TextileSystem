@@ -21,17 +21,18 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
 
-    # NO RESTORE — evita restaurar Android/iOS/Mac
-    - name: Publish Windows
+    - name: Restore
+      run: dotnet restore TextileSystem.csproj
+
+    - name: Publish Windows (single-file, NOT self-contained)
       run: dotnet publish TextileSystem.csproj `
             -c Release `
             -f net10.0-windows10.0.19041.0 `
             -r win-x64 `
-            --self-contained true `
             -p:PublishSingleFile=true `
-            -p:IncludeNativeLibrariesForSelfExtract=true `
+            -p:PublishTrimmed=false `
             -p:PublishDir=output `
-            --no-restore
+            --no-build
       shell: powershell
 
     - name: Zip Build
