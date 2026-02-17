@@ -3,6 +3,7 @@ name: Build MAUI Windows
 on:
   push:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build-windows:
@@ -10,18 +11,35 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 10.0.x
 
     - name: Install MAUI workload
       run: dotnet workload install maui
 
-    - name: Restore
-      run: dotnet restore TextileSystem/TextileSystem.csproj
+    # RESTORE SOLO PARA WINDOWS
+    - name: Restore Windows Target
+      run: dotnet restore TextileSystem.csproj -f net10.0-windows10.0.19041.0
 
-    - name: Build Windows
-      run: dotnet build TextileSystem/TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0
+    # PUBLISH SOLO PARA WINDOWS
+    - name: Publish Windows
+      run: dotnet publish TextileSystem.csproj `
+            -c Release `
+            -f net10.0-windows10.0.19041.0 `
+            -r win10-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:IncludeNativeLibrariesForSelfExtract=true `
+            -p:PublishDir=output `
+            --no-restore
+      shell: powershell
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TextileSystem-Windows
+        path: output
