@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 8.0.x   # mejor usar LTS
 
     - name: Install MAUI workload
       run: dotnet workload install maui
@@ -24,12 +24,18 @@ jobs:
     - name: Restore
       run: dotnet restore TextileSystem.csproj
 
-    - name: Build Windows
-      run: dotnet build TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0
+    - name: Publish Windows
+      run: dotnet publish TextileSystem.csproj `
+            -c Release `
+            -f net8.0-windows10.0.19041.0 `
+            -r win-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -o output
+      shell: powershell
 
     - name: Zip Build Output
-      run: |
-        Compress-Archive -Path "TextileSystem\bin\Release\net10.0-windows10.0.19041.0\win10-x64\*" -DestinationPath TextileSystem-Windows.zip
+      run: Compress-Archive -Path "output\*" -DestinationPath TextileSystem-Windows.zip
       shell: powershell
 
     - name: Upload Artifact
