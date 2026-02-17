@@ -3,8 +3,6 @@ name: Build MAUI Windows
 on:
   push:
     branches: [ "master" ]
-    tags:
-      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -26,15 +24,7 @@ jobs:
     - name: Restore
       run: dotnet restore TextileSystem.csproj
 
-    # 🏷 Generate Version Number (1.0.<run_number>)
-    - name: Set Version
-      run: |
-        $version = "1.0.${{ github.run_number }}"
-        echo "VERSION=$version" >> $env:GITHUB_ENV
-      shell: powershell
-
-    # 🔥 Publish self-contained single-file EXE for Windows 10 x64
-    - name: Publish Windows EXE
+    - name: Publish Windows
       run: dotnet publish TextileSystem.csproj `
             -c Release `
             -f net10.0-windows10.0.19041.0 `
@@ -45,30 +35,8 @@ jobs:
             -o output
       shell: powershell
 
-    # 📦 Rename EXE to include version
-    - name: Rename EXE
-      run: |
-        Rename-Item "output\TextileSystem.exe" "TextileSystem-$env:VERSION.exe"
-      shell: powershell
-
-    # 📦 Zip Build
-    - name: Zip Build
-      run: |
-        Compress-Archive -Path output\* -DestinationPath TextileSystem-$env:VERSION.zip
-      shell: powershell
-
-    # 🎁 Upload Artifact (for Actions / API)
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: TextileSystem-${{ env.VERSION }}
-        path: TextileSystem-${{ env.VERSION }}.zip
-
-    # 🚀 Create GitHub Release when pushing a tag like v1.0.0
-    - name: Create Release
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v2
-      with:
-        files: TextileSystem-${{ env.VERSION }}.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: TextileSystem-Windows
+        path: output
