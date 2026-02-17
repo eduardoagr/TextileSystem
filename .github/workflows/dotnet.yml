@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Setup .NET
@@ -24,20 +24,11 @@ jobs:
     - name: Restore
       run: dotnet restore TextileSystem.csproj
 
-    - name: Publish Windows (single-file, NOT self-contained)
-      run: dotnet publish TextileSystem.csproj `
-            -c Release `
-            -f net10.0-windows10.0.19041.0 `
-            -r win-x64 `
-            -p:PublishSingleFile=true `
-            -p:PublishTrimmed=false `
-            -p:PublishDir=output `
-            --no-build
-      shell: powershell
+    - name: Publish Windows (single-file)
+      run: dotnet publish TextileSystem.csproj -c Release -f net10.0-windows10.0.19041.0 -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=false -p:PublishDir=output --no-build
 
-    - name: Zip Build
-      run: |
-        Compress-Archive -Path output\* -DestinationPath TextileSystem-Windows.zip
+    - name: Zip Output
+      run: Compress-Archive -Path output\* -DestinationPath TextileSystem-Windows.zip
       shell: powershell
 
     - name: Upload Artifact
