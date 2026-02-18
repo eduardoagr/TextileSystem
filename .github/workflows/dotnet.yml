@@ -34,15 +34,18 @@ jobs:
       - name: Build all target frameworks
         run: dotnet build -c Release
 
+      # IMPORTANT: PowerShell uses backticks ` for multiline commands
+      # Also: specify the .csproj path explicitly
       - name: Publish Windows Single EXE
         run: |
-          dotnet publish \
-            -f net10.0-windows10.0.19041.0 \
-            -c Release \
-            -r win-x64 \
-            -p:SelfContained=true \
-            -p:PublishSingleFile=true \
-            -p:IncludeNativeLibrariesForSelfExtract=true \
+          dotnet publish `
+            ./TextileSystem.csproj `
+            -f net10.0-windows10.0.19041.0 `
+            -c Release `
+            -r win-x64 `
+            -p:SelfContained=true `
+            -p:PublishSingleFile=true `
+            -p:IncludeNativeLibrariesForSelfExtract=true `
             -o ./publish/win
 
       - name: Set date variable
