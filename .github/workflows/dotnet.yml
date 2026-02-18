@@ -3,6 +3,8 @@ name: Build TextileSystem
 on:
   push:
     branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -35,8 +37,11 @@ jobs:
       - name: Publish Windows EXE
         run: dotnet publish -f net10.0-windows10.0.19041.0 -c Release -o ./publish/win
 
-      - name: Upload Windows Artifact
+      - name: Set date variable
+        run: echo "DATE=$(Get-Date -Format yyyy-MM-dd)" >> $env:GITHUB_ENV
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TextileSystem-Windows
+          name: TextileSystem-Windows-${{ env.DATE }}
           path: ./publish/win
