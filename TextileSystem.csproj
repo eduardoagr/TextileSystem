@@ -11,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>	
 		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 		<NoWarn>MAUIG2045</NoWarn>
 
@@ -37,7 +37,20 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
+<PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-windows10.0.19041.0'">
+    <OutputType>WinExe</OutputType>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <WindowsPackageType>None</WindowsPackageType>
+    <AssemblyName>TextileSystem</AssemblyName>
+    <ApplicationTitle>Textile System</ApplicationTitle>
+    <ApplicationIcon>Resources\AppIcon\installer.ico</ApplicationIcon>
+</PropertyGroup>
+	
 	<ItemGroup>
+		
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
@@ -61,17 +74,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="14.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="14.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="LocalizationResourceManager.Maui" Version="1.2.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.40" />
-		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.40" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
+		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.41" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.3" />
-		<PackageReference Include="Syncfusion.Licensing" Version="32.2.4" />
-		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="32.2.4" />
-		<PackageReference Include="Syncfusion.Maui.Inputs" Version="32.2.4" />
-		<PackageReference Include="Syncfusion.Maui.Popup" Version="32.2.4" />
-		<PackageReference Include="Syncfusion.Maui.TabView" Version="32.2.4" />
+		<PackageReference Include="Syncfusion.Licensing" Version="32.2.7" />
+		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="32.2.7" />
+		<PackageReference Include="Syncfusion.Maui.Inputs" Version="32.2.7" />
+		<PackageReference Include="Syncfusion.Maui.Popup" Version="32.2.7" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="32.2.7" />
 	</ItemGroup>
 
 	<ItemGroup>
