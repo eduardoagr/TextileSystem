@@ -109,19 +109,19 @@
 	  <MauiXaml Update="Controls\MenuTileView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsClientsConsult.xaml">
+	  <MauiXaml Update="MenuViews\Catalogs\CatalogsClientsConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsColorsConsult.xaml">
+	  <MauiXaml Update="MenuViews\Catalogs\CatalogsColorsConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsProductConsult.xaml">
+	  <MauiXaml Update="MenuViews\Catalogs\CatalogsProductConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsProvidersConsult.xaml">
+	  <MauiXaml Update="MenuViews\Catalogs\CatalogsProvidersConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MenuViews\CatalogsUsersConsult.xaml">
+	  <MauiXaml Update="MenuViews\Catalogs\CatalogsUsersConsult.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AppShell.xaml">

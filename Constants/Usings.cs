@@ -17,11 +17,11 @@ global using System.Diagnostics;
 global using System.Globalization;
 global using System.Windows.Input;
 
+global using TextileSystem.Catalogs.MenuViewModels;
 global using TextileSystem.Constants;
 global using TextileSystem.Emuns;
 global using TextileSystem.Helpers;
 global using TextileSystem.Interfaces;
-global using TextileSystem.MenuViewModels;
 global using TextileSystem.MenuViews;
 global using TextileSystem.Models;
 global using TextileSystem.Resources.Languages;

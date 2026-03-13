@@ -1,9 +1,5 @@
 ﻿namespace TextileSystem.Models;
 
-/// <summary>
-/// Represents a top-level tab
-/// (e.g. Captura, Catálogos, Movimientos)
-/// </summary>
 public class MenuSection {
 
     public string Title { get; set; } = string.Empty;
@@ -11,10 +7,6 @@ public class MenuSection {
     public ObservableCollection<MenuGroup> Groups { get; set; } = [];
 }
 
-/// <summary>
-/// Represents a group of tiles inside a tab
-/// (e.g. Ventas consulta, Catálogos principales)
-/// </summary>
 public class MenuGroup {
 
     public string Title { get; set; } = string.Empty;
@@ -22,17 +14,10 @@ public class MenuGroup {
     public ObservableCollection<MenuTile> Tiles { get; set; } = [];
 }
 
-/// <summary>
-/// Represents a single tile (icon + text)
-/// </summary>
-
 public partial class MenuTile : ObservableObject {
 
     public string Title { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Icon resource name (png / svg)
-    /// </summary>
     public string Icon { get; set; } = string.Empty;
 
     public string HelpText { get; set; } = string.Empty;
