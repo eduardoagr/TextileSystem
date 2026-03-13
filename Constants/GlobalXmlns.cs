@@ -1,4 +1,7 @@
-﻿[assembly: XmlnsDefinition("http://schemas.textilesystem.com/maui", "CommunityToolkit.Maui.Behaviors")]
+﻿
+
+
+[assembly: XmlnsDefinition("http://schemas.textilesystem.com/maui", "CommunityToolkit.Maui.Behaviors")]
 [assembly: XmlnsDefinition("http://schemas.textilesystem.com/maui", "CommunityToolkit.Maui.Views")]
 [assembly: XmlnsDefinition("http://schemas.textilesystem.com/maui", "CommunityToolkit.Maui.Core")]
 [assembly: XmlnsDefinition("http://schemas.textilesystem.com/maui", "TextileSystem")]
